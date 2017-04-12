@@ -6,6 +6,7 @@
 
 const gulp = require('gulp');
 const $ = require('gulp-load-plugins')();
+const isDev = !process.env.NODE_ENV || process.env.NODE_ENV == 'development';
 
 module.exports = (options) => {
 
@@ -19,7 +20,8 @@ module.exports = (options) => {
 						})
 					}))
 					.pipe($.pug({
-						basedir: options.base
+						basedir: options.base,
+						pretty: isDev
 					}))
 					.pipe(gulp.dest(options.dest));
 
