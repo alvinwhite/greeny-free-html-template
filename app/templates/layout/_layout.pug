@@ -1,0 +1,8 @@
+include ../scripts/_scripts.pug
+
+doctype html
+html(lang='en')
+	include ../head/_head.pug
+	body.page
+		block content
+		+scripts(['bundle.js'])
