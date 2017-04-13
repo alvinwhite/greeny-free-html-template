@@ -13,7 +13,6 @@ const gulp = require('gulp');
 const isDev = !process.env.NODE_ENV || process.env.NODE_ENV == 'development';
 const cfg = require('./awesome.config.js');
 
-
 /**
  * Helper functions
  */

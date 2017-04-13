@@ -23,5 +23,21 @@ module.exports = {
 	},
 	plugins: [
 		new webpack.NoErrorsPlugin()
-	]
+	],
+	resolve: {
+		moduleDirectories: ['node_modules'],
+		extensions: ['', '.js']
+	}
 };
+
+if (!isDev) {
+	module.exports.plugins.push(
+			new webpack.optimize.UglifyJsPlugin({
+				compress: {
+					warnings: false,
+					drop_console: true,
+					unsafe: true
+				}
+			})
+	);
+}
