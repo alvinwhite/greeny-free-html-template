@@ -9,7 +9,11 @@ const isDev = !process.env.NODE_ENV || process.env.NODE_ENV == 'development';
 
 module.exports = (options) => {
 
-	return (callback) => {
+	if(!options.src) throw new Error('Error in task ' + options.taskName + ': src property must be specifed');
+	if(!options.dest) throw new Error('Error in task ' + options.taskName + ': dest property must be specifed');
+	if(!options.config) throw new Error('Error in task ' + options.taskName + ': config property must be specifed');
+
+	return () => {
 
 		return gulp.src(options.src)
 					.pipe($.plumber({errorHandler: $.notify.onError(function(err) {
@@ -21,7 +25,7 @@ module.exports = (options) => {
 					}))
 					.pipe(named())
 					.pipe(webpackStream(require(options.config)))
-					.pipe(gulp.dest(options.dest))
+					.pipe(gulp.dest(options.dest));
 					
-	}
-}
+	};
+};

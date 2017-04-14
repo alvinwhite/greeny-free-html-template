@@ -16,11 +16,13 @@ const fs = require('fs');
  */
 module.exports = (options) => {
 
-return () => {
+	if(!options.src) throw new Error('Error in task ' + options.taskName + ': src property must be specifed');
 
-	return gulp.src(options.src, {since: gulp.lastRun(options.taskName)})
-		.pipe($.eslint())
-		.pipe($.eslint.format())
-		.pipe($.eslint.failAfterError()); 
+	return () => {
+
+		return gulp.src(options.src, {since: gulp.lastRun(options.taskName)})
+			.pipe($.eslint())
+			.pipe($.eslint.format())
+			.pipe($.eslint.failAfterError()); 
 	};
 };

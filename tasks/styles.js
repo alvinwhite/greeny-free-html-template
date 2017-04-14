@@ -7,13 +7,17 @@
 const gulp = require('gulp');
 const $ = require('gulp-load-plugins')();
 const isDev = !process.env.NODE_ENV || process.env.NODE_ENV == 'development';
+const path = require('path');
 
 module.exports = (options) => {
+
+	if(!options.src) throw new Error('Error in task ' + options.taskName + ': src property must be specifed');
+	if(!options.dest) throw new Error('Error in task ' + options.taskName + ': dest property must be specifed');
 
 	function getPreprocessor() {
 
 		if(options.preprocessor === 'sass') {
-			return $.sass();
+			return $.sass({outputStyle: 'expanded'});
 		} else if(options.preprocessor === 'stylus') {
 			return $.stylus();
 		} else if(options.preprocessor === 'sugarss') {
@@ -37,6 +41,6 @@ module.exports = (options) => {
 			.pipe($.postcss())
 			.pipe($.if(isDev, $.sourcemaps.write()))
 			.pipe(gulp.dest(options.dest));
-	}
+	};
 
-}
+};

@@ -8,11 +8,14 @@ const browserSync = require('browser-sync').create();
 
 module.exports = (options) => {
 
+	if(!options.serverDir) throw new Error('Error in task ' + options.taskName + ': serverDir property must be specifed');
+	if(!options.watchDir) throw new Error('Error in task ' + options.taskName + ': watchDir property must be specifed');
+
 	return () => {
 		browserSync.init({
 			server: options.serverDir
 		});
 		
 		browserSync.watch(options.watchDir).on('change', browserSync.reload);
-	}
+	};
 };

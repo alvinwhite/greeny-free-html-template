@@ -53,6 +53,11 @@ lazyRequireTask('assets', './tasks/assets', {
 	dest: cfg.dirs.baseDest
 });
 
+lazyRequireTask('assets:styles', './tasks/assets.styles', {
+	src: cfg.dirs.styles.src + '/**/*.{svg,jpg,png}',
+	dest: cfg.dirs.baseDest
+});
+
 lazyRequireTask('eslint', './tasks/eslint', {
 	src: cfg.dirs.scripts.src + '/**/*.js'
 });
@@ -81,13 +86,14 @@ lazyRequireTask('pug', './tasks/pug', {
 gulp.task('build', gulp.series(
 		'clear',
 		gulp.parallel('pug', 'styles', 'webpack'),
-		'assets'
+		gulp.parallel('assets', 'assets:styles')
 ));
 
 gulp.task('watch', function() {
 	gulp.watch(cfg.dirs.pages.src + '/**/*.pug', gulp.series('pug'));
 	gulp.watch(cfg.dirs.scripts.src + '/**/*.js', gulp.series('webpack'));
-	gulp.watch(cfg.dirs.styles.src + '/**/*.*', gulp.series('styles'));
+	gulp.watch(cfg.dirs.styles.src + '/**/*.{sass,scss}', gulp.series('styles'));
+	gulp.watch(cfg.dirs.styles.src + '/**/*.{jpg,png,svg}', gulp.series('assets:styles'));
 	gulp.watch('app/assets/**/*.*', gulp.series('assets'));
 });
 
@@ -100,4 +106,4 @@ gulp.task('prod', gulp.series('build', 'eslint'));
 
 gulp.task('default', gulp.series('dev'));
 
-gulp.task('test', gulp.series('default'))
+gulp.task('test', gulp.series('default'));
