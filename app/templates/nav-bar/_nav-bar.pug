@@ -1,14 +1,24 @@
 +b.NAV.nav-bar
-	+b.A.logo
-	+b.UL.main-menu
-		+e.item
-			+e.link Home
-		+e.item
-			+e.link About us
-		+e.item
-			+e.link Blog
-		+e.item
-			+e.link Gallery
-		+e.item
-			+e.link Pages
-		
+	+e.row
+		+e.A.logo.logo__(href="#")
+			+e.SVG.svg
+				use(xlink:href="#logo__Greeny-logo")
+		+e.UL.menu.main-menu__
+			+e.item
+				+e.link--active(href="#Home") Home
+			+e.item
+				+e.link(href="#AboutUs") About us
+			+e.item
+				+e.link(href="#Blog") Blog
+			+e.item
+				+e.link(href="#Gallery") Gallery
+			+e.item
+				+e.link(href="#Pages") Pages
+		+e.icons
+			+e.BUTTON.menu-icon.menu-icon__
+				+e.SVG.svg
+					use(xlink:href="#menu-icon__menu")
+			+b.BUTTON.search-icon
+				+e.SVG.svg
+					use(xlink:href="#search-icon__search")
+

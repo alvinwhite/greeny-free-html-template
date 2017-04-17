@@ -7,7 +7,10 @@ const webpack = webpackStream.webpack;
 const path = require('path');
 
 module.exports = {
-	entry: './app/js/index.js',
+	context: path.join(__dirname + '/app/js'),
+	entry: {
+		index: './index.js'
+	},
 	watch: false,
 	devtool: isDev ? 'cheap-module-inline-source-map' : null,
 	module: {
@@ -18,7 +21,7 @@ module.exports = {
 		}]
 	},
 	output: {
-		filename: 'bundle.js',
+		filename: '[name].js',
 		publicPath: '/js/'
 	},
 	plugins: [

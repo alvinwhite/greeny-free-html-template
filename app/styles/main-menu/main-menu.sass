@@ -1,0 +1,37 @@
+.main-menu 
+	list-style: none
+	font-family: $heading-font
+	font-weight: 800
+	font-size: 1.8rem
+	text-transform: uppercase
+
+.main-menu__item
+	display: inline-block
+	position: relative
+
+	&:not(:last-child)
+		margin-right: 25px
+
+.main-menu__link
+	color: $main-dark
+	&::after
+		content: ''
+		position: absolute
+		display: block  
+		margin-top: 5px
+		width: 0
+		height: 3px
+		border-radius: 2px
+		background-color: $accent-1
+		transition: width 200ms  
+	&:hover
+		&::after
+			width: 100%
+	&--active
+		&::after
+			width: 100%
+
+			
+
+
+

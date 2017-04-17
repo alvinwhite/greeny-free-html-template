@@ -1,1 +1,3 @@
-// Index.js for all your modules 
+import hero from './modules/hero.js';
+
+hero();

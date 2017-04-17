@@ -1,0 +1,5 @@
+mixin stylesheets(stylesheets)
+	each href in stylesheets
+		- var isExternalStylesheet = /^(?:https?\:)?\/\//i;
+		- href = isExternalStylesheet.test(href) ? href : 'assets/styles/' + href;
+		link(href=href, rel='stylesheet')

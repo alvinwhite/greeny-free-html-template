@@ -1,29 +1,37 @@
+/*	==========================================================================	*/
+/*	LIBRARIES | DEPENDENCIES                                                    */
+/*	==========================================================================	*/
+
+@import '_includes/bootstrap'
+@import '_includes/swiper'
+
 //	==========================================================================
 //	IMPORTS
 //	========================================================================== 
 
-
 @import '_includes/vars'
+@import '_includes/mixins'
 @import '_includes/fonts'
-@import '_includes/bootstrap'
 
 /*	==========================================================================	*/
 /*	DEFAULT LAYOUT                                                           		*/
 /*	==========================================================================	*/
 
-
-html
-	font-size: 62.5% // 10 px = 1rem now 
-
-.page
-	font-family: $default-font
-	color: $main-dark 
-	font-size: 1.6rem
+@import '_includes/layout'
 
 /*	==========================================================================	*/
-/*	CUSTOM STYLES                                                            		*/
+/*	TEMPLATES | BLOCKS                                                          */
 /*	==========================================================================	*/
 
-@import 'logo/logo'
+/* NAV-BAR TEMPLATE */
 @import 'nav-bar/nav-bar'
+@import 'logo/logo'
+@import 'main-menu/main-menu'
+@import 'menu-icon/menu-icon'
+@import 'search-icon/search-icon'
+
+/* HERO TEMPLATE */
+@import 'hero/hero'
+@import 'slider/slider'
+@import 'content-box/content-box'
 

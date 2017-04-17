@@ -1,6 +1,8 @@
+include ../stylesheets/_stylesheets 
+
 head
 	meta(charset='utf-8')
-	meta(name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, minimal-ui')
+	meta(name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimal-ui')
 	meta(http-equiv='X-UA-Compatible' content='IE=edge')
 	meta(name='imagetoolbar' content='no')
 	meta(name='msthemecompatible' content='no')
@@ -22,4 +24,4 @@ head
 	meta(name='description' content=pageDescription || '')
 	meta(name='keywords' content=pageKeywords || '')
 
-	link(href='index.css' rel='stylesheet')
+	+stylesheets(stylesheets)

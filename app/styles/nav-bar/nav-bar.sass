@@ -1,0 +1,31 @@
+.nav-bar
+	background-color: $main-light
+	height: 70px 
+	@extend .container
+
+.nav-bar__row 
+	@extend .row
+	height: 100% 
+
+.nav-bar__logo
+	align-self: center
+
+.nav-bar__menu
+	margin: 0 0 0 auto
+	display: none 
+	padding: 0 60px 0 0
+	align-self: center
+	+media-breakpoint-up(lg)
+		display: block
+
+.nav-bar__icons
+	align-self: center
+	margin: 0 0 0 auto
+	display: flex
+	+media-breakpoint-up(lg)
+		margin: 0
+
+.nav-bar__menu-icon
+	display: block  
+	+media-breakpoint-up(lg)
+		display: none 

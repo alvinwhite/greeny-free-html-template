@@ -26,6 +26,8 @@ module.exports = (options) => {
 
 	}
 
+	let preprocessor = getPreprocessor();
+
 	return () => {
 		
 		return gulp.src(options.src)
@@ -37,7 +39,7 @@ module.exports = (options) => {
 				})
 			}))
 			.pipe($.if(isDev, $.sourcemaps.init()))
-			.pipe(getPreprocessor())
+			.pipe(preprocessor)
 			.pipe($.postcss())
 			.pipe($.if(isDev, $.sourcemaps.write()))
 			.pipe(gulp.dest(options.dest));

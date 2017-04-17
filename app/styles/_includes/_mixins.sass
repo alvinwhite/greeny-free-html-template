@@ -1,0 +1,19 @@
+=font-face--otf($family, $path, $weight: normal, $style: normal)
+  @font-face
+    font-family: $family
+    src: url('#{$path}.otf') format('opentype')
+    font-weight: $weight
+    font-style: $style
+
+=font-face--ttf($family, $path, $weight: normal, $style: normal)
+  @font-face
+    font-family: $family
+    src: url('#{$path}.ttf') format('truetype')
+    font-weight: $weight
+    font-style: $style
+
+=setAbsPosition($x, $y)
+    position: absolute
+    top: $x
+    left: $y
+    transform: translate(-$x, -$y)

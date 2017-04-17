@@ -5,9 +5,13 @@ module.exports = {
 	dirs: {
 		baseSrc: 'app',
 		baseDest: 'public',
+		assets: {
+			src: 'app/assets',
+			dest: 'public/assets' 
+		},
 		styles: {
 			src: 'app/styles',
-			dest: 'public'
+			dest: 'public/assets/styles'
 		},
 		scripts: {
 			src: 'app/js',
@@ -18,4 +22,4 @@ module.exports = {
 			dest: 'public'
 		}
 	}
-}
+};

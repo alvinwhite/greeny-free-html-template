@@ -39,23 +39,28 @@ function lazyRequireTask(taskName, path, options) {
  */
 
 lazyRequireTask('styles', './tasks/styles', {
-	src: cfg.dirs.styles.src + '/index.sass',
+	src: cfg.dirs.styles.src + '/*.{sass,scss}',
 	dest: cfg.dirs.styles.dest,
 	preprocessor: cfg.preprocessor
 });
 
+lazyRequireTask('symbol', './tasks/symbol', {
+	src: cfg.dirs.styles.src + '/**/*.svg',
+	dest: cfg.dirs.assets.src
+});
+
 lazyRequireTask('clear', './tasks/clear', {
-	dest: cfg.dirs.styles.dest
+	dest: cfg.dirs.baseDest
 });
 
 lazyRequireTask('assets', './tasks/assets', {
-	src: cfg.dirs.baseSrc + '/assets/**.*',
-	dest: cfg.dirs.baseDest
+	src: cfg.dirs.assets.src + '/**/*.*',
+	dest: cfg.dirs.assets.dest
 });
 
 lazyRequireTask('assets:styles', './tasks/assets.styles', {
-	src: cfg.dirs.styles.src + '/**/*.{svg,jpg,png}',
-	dest: cfg.dirs.baseDest
+	src: cfg.dirs.styles.src + '/**/*.{jpg,png}',
+	dest: cfg.dirs.assets.dest
 });
 
 lazyRequireTask('eslint', './tasks/eslint', {
@@ -85,6 +90,7 @@ lazyRequireTask('pug', './tasks/pug', {
 
 gulp.task('build', gulp.series(
 		'clear',
+		'symbol',
 		gulp.parallel('pug', 'styles', 'webpack'),
 		gulp.parallel('assets', 'assets:styles')
 ));
@@ -93,8 +99,9 @@ gulp.task('watch', function() {
 	gulp.watch(cfg.dirs.pages.src + '/**/*.pug', gulp.series('pug'));
 	gulp.watch(cfg.dirs.scripts.src + '/**/*.js', gulp.series('webpack'));
 	gulp.watch(cfg.dirs.styles.src + '/**/*.{sass,scss}', gulp.series('styles'));
-	gulp.watch(cfg.dirs.styles.src + '/**/*.{jpg,png,svg}', gulp.series('assets:styles'));
-	gulp.watch('app/assets/**/*.*', gulp.series('assets'));
+	gulp.watch(cfg.dirs.styles.src + '/**/*.{jpg,png}', gulp.series('assets:styles'));
+	gulp.watch(cfg.dirs.styles.src + '/**/*.{svg}', gulp.series('symbol', 'pug'));
+	gulp.watch(cfg.dirs.assets.src + '/**/*.*', gulp.series('assets'));
 });
 
 gulp.task('dev', gulp.series(

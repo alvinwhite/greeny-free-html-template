@@ -1,7 +1,11 @@
 extends /templates/layout/_layout.pug
 
 block head
-	- var pageTitle = 'Greeny'; 
+	- var pageTitle = 'Greeny';
+	- var stylesheets = ['index.css'] 
 
 block content
+	include /assets/symbol.svg
 	include /templates/nav-bar/_nav-bar.pug
+	include /templates/hero/_hero.pug
+	- var scripts = ['index.js']

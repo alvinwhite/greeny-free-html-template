@@ -1,4 +1,4 @@
-include ../scripts/_scripts.pug
+include ../scripts/_scripts
 include ../../../node_modules/bemto.pug/bemto
 
 - set_bemto_settings({ modifier: '--' })
@@ -8,4 +8,4 @@ html(lang='en')
 	include ../head/_head.pug
 	+b.BODY.page
 		block content
-		+scripts(['bundle.js'])
+		+scripts(scripts)
