@@ -28,18 +28,26 @@ const swiperOptions = {
 
 function adjustImages(images) {
 	const h = window.innerHeight - 70;
+	const w = window.innerWidth;
 	
-	for (let i = 0; i < images.length; i++) {
-		images[i].style.height = h + 'px';
-	};
-	
+		for (let i = 0; i < images.length; i++) {
+			images[i].style.height = h + 'px';
+		}
+
 };
+
+
 
 function initHero() {
 	const swiperInit = new Swiper('.hero__slider', swiperOptions);
-	
+	/*
 	adjustImages(imageCollection);
 
+	window.addEventListener('resize', () => adjustImages(imageCollection));
+	window.addEventListener('orientationchange', () => {
+		adjustImages(imageCollection);
+	});
+	*/
 }
 
 export default initHero;

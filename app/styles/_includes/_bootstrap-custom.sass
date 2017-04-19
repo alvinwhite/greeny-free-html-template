@@ -1,0 +1,47 @@
+
+
+/*	BOOTSTRAP | COPYRIGHT                                                       */
+/*	==========================================================================	*/
+
+/*!
+ * Bootstrap v4.0.0-alpha.6 (https://getbootstrap.com)
+ * Copyright 2011-2017 The Bootstrap Authors
+ * Copyright 2011-2017 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+
+// Scary long paths are due to my inability to fix includePath option in gulp-sass
+// which doesn't resolve imports of mixins
+// if you know how to solve the issue - feel free to do so [see tasks/styles.js]  
+
+// Core variables and mixins
+@import "variables"
+@import "mixins.scss" // .scss to prevent conflicts with our own mixins.sass
+@import "custom"
+
+
+// Reset and dependencies
+@import "normalize"
+@import "print"
+
+
+/*	BOOTSTRAP                                                            				*/
+/*	==========================================================================	*/
+
+// Core CSS
+@import "reboot"
+@import "type"
+@import "images"
+@import "code"
+@import "grid"
+@import "tables"
+@import "forms"
+@import "buttons"
+
+// Components
+@import "transitions"
+@import "nav"
+@import "navbar"
+
+// Utility classes
+@import "utilities"

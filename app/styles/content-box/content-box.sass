@@ -1,5 +1,48 @@
 .content-box
+	position: relative
+	padding: 30px 40px
+	display: flex
+	flex-direction: column
+	justify-content: center
+	background-color: $accent-1
+	color: $main-light
+	transition: all 200ms
+	z-index: 2
+	&::after
+		position: absolute
+		bottom: -5%
+		left: 0
+		display: block
+		width: 100%
+		height: 5%
+		content: ''
+		background-color: $accent-2
+		z-index: 3
+	&:hover
+		background-color: $accent-2
+		transform: translateY(-5%)
+		.content-box__heading::after
+			width: 20%
+
 
 .content-box__heading
+	position: relative
+	padding-bottom: 15px
+	line-height: 1.1
+	font-family: $heading-font
+	font-size: 32px
+	&::after
+		position: absolute
+		bottom: 0
+		left: 0
+		display: block
+		height: 6px
+		width: 0
+		border-radius: 4px
+		content: ''
+		background-color: $main-light
+		transition: width 400ms
 
 .content-box__content
+	font-size: 20px 
+	margin-top: 10px

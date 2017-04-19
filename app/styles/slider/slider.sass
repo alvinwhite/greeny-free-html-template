@@ -1,5 +1,22 @@
+// This extension of native swiper classes is necessary because
+// of changing namespace to match BEM convention
+// ===========
+// BE CAUTIOS!
+// ===========
+// Only classes that are required for current swiper sliders are 
+// extended, if you are going to use custom swiper instance or 
+// make changes to the current ones, chances are you will need 
+// some others classes. Either extend them here, or use native 
+// swiper classes instead.
+
 .slider
 	@extend .swiper-container
+
+.slider-horiziontal
+	@extend .swiper-container-horizontal
+
+.slider-fade
+	@extend .swiper-container-fade
 
 .slider__wrapper
 	@extend .swiper-wrapper
@@ -7,27 +24,55 @@
 .slider__slide
 	@extend .swiper-slide
 
+.slider__slide--prev
+	@extend .swiper-slide-prev
+
+.slider__slide--active
+	@extend .swiper-slide-active
+
 .slider__pagination
 	@extend .swiper-pagination
 
-.slider__img
-	width: 100%
+.slider__pagination--hidden
+	@extend .swiper-pagination-hidden
 
+// Custom classes
+
+.slider__img
+	height: calc(100vh - 70px)
+	min-width: 100%
+
+.slider__content
+	text-align: center
+
+.slider__content--hero
+	+setAbsPosition(50%, 50%)
+	+media-breakpoint-up(xl)
+		+setAbsPosition(50%, 35%)
+		
 .slider__heading
-	+setAbsPosition(38%, 45%)
+	color: $main-light
 	font-family: $heading-font
 	font-weight: 800
-	font-size: 68px
 	white-space: nowrap
-	color: $main-light
-
-
+	&--hero
+		+media-breakpoint-up(xs)
+			font-size: 32px
+		+media-breakpoint-up(sm)
+			font-size: 52px
+		+media-breakpoint-up(md)
+			font-size: 62px
+		+media-breakpoint-up(lg)
+			font-size: 68px
 
 .slider__subheading
-	+setAbsPosition(48%, 50%)
-	font-family: $heading-font
+	@extend .slider__heading 
 	font-weight: 600
-	font-size: 68px 
-	white-space: nowrap
-	color: $main-light
+	&--hero
+		@extend .slider__heading--hero 
+
+.slider__button--hero
+	margin-top: 20px
+
+
 

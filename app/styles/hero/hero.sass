@@ -1,9 +1,31 @@
 .hero
 	@extend .container-fluid
+	background-color: $accent-2-dark
 
 .hero__row
-	@extend .row 
+	@extend .row
 
-.hero__slider
+.hero__boxes-row
+	position: static
+	z-index: 2
+	display: flex
+	flex-direction: column
+	flex-wrap: nowrap
+	margin-right: -15px
+	margin-left: -15px
+	+media-breakpoint-up(xl)
+		flex-direction: row
+		position: absolute
+		bottom: 0
+		left: 0
+		margin: 0
 
 .hero__box
+	&:nth-of-type(even)
+		border: none
+		border-top: $accent-2-dark solid 2px
+		border-bottom: $accent-2-dark solid 2px
+	+media-breakpoint-up(xl)
+		background-color: rgba($accent-1, 0.82)
+		&:nth-of-type(even)
+			border: none
