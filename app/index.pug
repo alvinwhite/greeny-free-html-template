@@ -1,11 +1,16 @@
 extends /templates/layout/_layout.pug
 
+include /templates/nav-bar/_nav-bar.pug
+include /templates/hero/_hero.pug
+include /templates/outline-boxes/_outline-boxes
+
 block head
 	- var pageTitle = 'Greeny';
-	- var stylesheets = ['index.css'] 
+	- var stylesheets = ['index.css']
 
 block content
 	include /assets/symbol.svg
-	include /templates/nav-bar/_nav-bar.pug
-	include /templates/hero/_hero.pug
+	+navBar()
+	+hero()
+	+outlineBoxes()
 	- var scripts = ['index.js']

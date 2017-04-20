@@ -1,26 +1,27 @@
-.nav-bar__spacefiller
-+b.NAV.nav-bar
-	+e.container
-		+e.row
-			+e.A.logo.logo__(href="#")
-				+e.SVG.svg
-					use(xlink:href="#logo__Greeny-logo")
-			+e.UL.menu.main-menu__
-				+e.item
-					+e.link--active(href="#Home") Home
-				+e.item
-					+e.link(href="#AboutUs") About us
-				+e.item
-					+e.link(href="#Blog") Blog
-				+e.item
-					+e.link(href="#Gallery") Gallery
-				+e.item
-					+e.link(href="#Pages") Pages
-			+e.buttons
-				+e.BUTTON.menu-button.menu-button__
-					+e.SVG.icon
-						use(xlink:href="#menu-button__menu")
-				+b.BUTTON.search-button
-					+e.SVG.icon
-						use(xlink:href="#search-button__search")
+mixin navBar(data)
+	+spacefiller('100%','70px')
+	+b.NAV.nav-bar
+		+e.container
+			+e.row
+				+e.A.logo.logo__(href="#")
+					+e.SVG.svg
+						use(xlink:href="#logo__Greeny-logo")
+				+e.UL.menu.main-menu__
+					+e.item
+						+e.link--active(href="#Home") Home
+					+e.item
+						+e.link(href="#AboutUs") About us
+					+e.item
+						+e.link(href="#Blog") Blog
+					+e.item
+						+e.link(href="#Gallery") Gallery
+					+e.item
+						+e.link(href="#Pages") Pages
+				+e.buttons
+					+e.BUTTON.menu-button.menu-button__
+						+e.SVG.icon
+							use(xlink:href="#menu-button__menu")
+					+b.BUTTON.search-button
+						+e.SVG.icon
+							use(xlink:href="#search-button__search")
 

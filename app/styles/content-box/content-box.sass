@@ -8,21 +8,40 @@
 	color: $main-light
 	transition: all 200ms
 	z-index: 2
+	// Hack with border, used because ::after with a flex element
+	// doesn't respond to width: 100% property as expected  
+	// TODO: Get rid of this^ and box-sizing: content-box when the issue is resolved
+	&:nth-of-type(even)
+		&::after
+			left: -2px
+			border-right: 2px solid $accent-2-dark
+			border-left: 2px solid $accent-2-dark
+
 	&::after
+		box-sizing: content-box
 		position: absolute
-		bottom: -5%
+		bottom: 0%
 		left: 0
-		display: block
+		opacity: 0
 		width: 100%
 		height: 5%
 		content: ''
-		background-color: $accent-2
+		background-color: $accent-2-dark
 		z-index: 3
+		transition: all 200ms
+
 	&:hover
 		background-color: $accent-2
 		transform: translateY(-5%)
+		&::after
+			transform: translateY(100%)
+			opacity: 1
 		.content-box__heading::after
 			width: 20%
+			+media-breakpoint-up(sm)
+				width: 10vw
+			+media-breakpoint-up(xl)
+				width: 20%
 
 
 .content-box__heading

@@ -3,7 +3,7 @@
 // ===========
 // BE CAUTIOS!
 // ===========
-// Only classes that are required for current swiper sliders are 
+// Only classes that are required for current swiper instances are 
 // extended, if you are going to use custom swiper instance or 
 // make changes to the current ones, chances are you will need 
 // some others classes. Either extend them here, or use native 
@@ -38,6 +38,9 @@
 
 // Custom classes
 
+// calc used here because of the issue with DOM orientationchange event
+// TODO: provide js fallback for Opera Mini
+// P.S: seem to work fine with modern browsers anyway
 .slider__img
 	height: calc(100vh - 70px)
 	min-width: 100%
@@ -55,21 +58,23 @@
 	font-family: $heading-font
 	font-weight: 800
 	white-space: nowrap
-	&--hero
-		+media-breakpoint-up(xs)
-			font-size: 32px
-		+media-breakpoint-up(sm)
-			font-size: 52px
-		+media-breakpoint-up(md)
-			font-size: 62px
-		+media-breakpoint-up(lg)
-			font-size: 68px
+
+.slider__heading--hero
+	+media-breakpoint-up(xs)
+		font-size: 32px
+	+media-breakpoint-up(sm)
+		font-size: 52px
+	+media-breakpoint-up(md)
+		font-size: 62px
+	+media-breakpoint-up(lg)
+		font-size: 68px
 
 .slider__subheading
 	@extend .slider__heading 
 	font-weight: 600
-	&--hero
-		@extend .slider__heading--hero 
+
+.slider__subheading--hero
+	@extend .slider__heading--hero 
 
 .slider__button--hero
 	margin-top: 20px
