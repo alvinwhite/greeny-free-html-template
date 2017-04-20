@@ -12,8 +12,8 @@
     font-weight: $weight
     font-style: $style
 
-=setAbsPosition($x, $y)
+=setAbsPosition($x, $y, $xDirection: left, $yDirection: top)
     position: absolute
-    top: $y
-    left: $x
+    #{$xDirection}: $x
+    #{$yDirection}: $y
     transform: translate(-$x, -$y)

@@ -15,16 +15,16 @@ function getPreprocessor() {
 		if(cfg.preprocessor === 'sass') {
 			return $.sass({
 				outputStyle: 'expanded',
-				includePaths: ['app/vendor/bootstrap/scss']
+				includePaths: ['./node_modules']
 			});
-		} 
+		}
 
 		if(cfg.preprocessor === 'stylus') {
 			return $.stylus();
-		} 
-			
+		}
+
 		return $.if(false, $.plumber());
-		
+
 	}
 
 module.exports = (options) => {
@@ -35,7 +35,7 @@ module.exports = (options) => {
 	let preprocessor = getPreprocessor();
 
 	return () => {
-		
+
 		return gulp.src(options.src)
 			.pipe($.plumber({errorHandler: $.notify.onError(function(err) {
 					return {

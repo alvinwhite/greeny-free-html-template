@@ -1,7 +1,7 @@
 
 
-/*	BOOTSTRAP | COPYRIGHT                                                       */
-/*	==========================================================================	*/
+/*	BOOTSTRAP | COPYRIGHT                                                   */
+/*	=======================================================================	*/
 
 /*!
  * Bootstrap v4.0.0-alpha.6 (https://getbootstrap.com)
@@ -10,38 +10,32 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
-// Scary long paths are due to my inability to fix includePath option in gulp-sass
-// which doesn't resolve imports of mixins
-// if you know how to solve the issue - feel free to do so [see tasks/styles.js]  
-
 // Core variables and mixins
-@import "variables"
-@import "mixins.scss" // .scss to prevent conflicts with our own mixins.sass
-@import "custom"
-
+@import "bootstrap/scss/variables"
+@import "bootstrap/scss/mixins"
+@import "bootstrap/scss/custom"
 
 // Reset and dependencies
-@import "normalize"
-@import "print"
+@import "bootstrap/scss/normalize"
+@import "bootstrap/scss/print"
 
-
-/*	BOOTSTRAP                                                            				*/
-/*	==========================================================================	*/
+/*	BOOTSTRAP                                                            		*/
+/*	=======================================================================	*/
 
 // Core CSS
-@import "reboot"
-@import "type"
-@import "images"
-@import "code"
-@import "grid"
-@import "tables"
-@import "forms"
-@import "buttons"
+@import "bootstrap/scss/reboot"
+@import "bootstrap/scss/type"
+@import "bootstrap/scss/images"
+@import "bootstrap/scss/code"
+@import "bootstrap/scss/grid"
+@import "bootstrap/scss/tables"
+@import "bootstrap/scss/forms"
+@import "bootstrap/scss/buttons"
 
 // Components
-@import "transitions"
-@import "nav"
-@import "navbar"
+@import "bootstrap/scss/transitions"
+@import "bootstrap/scss/nav"
+@import "bootstrap/scss/navbar"
 
 // Utility classes
-@import "utilities"
+@import "bootstrap/scss/utilities"
