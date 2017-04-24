@@ -1,0 +1,25 @@
+mixin teamCards(data)
+	+b.SECTION.team-cards.section
+		+e.container
+			+e.row
+				+e.heading.section__heading.section__heading--center Our team
+
+			+e.row
+				+b.team-card
+					+e.img
+					+e.name
+					+e.position
+					+e.UL.socials.socials-row__
+						+e.item
+							+e.border
+							+e.icon
+					+e.button-row
+						+b.stripes--left
+							+e.stripe
+							+e.stripe
+							+e.stripe
+						+b.button
+						+b.stripes--right
+							+e.stripe
+							+e.stripe
+							+e.stripe

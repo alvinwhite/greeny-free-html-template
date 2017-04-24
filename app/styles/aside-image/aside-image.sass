@@ -1,0 +1,74 @@
+.aside-image
+
+.aside-image__buttons
+	margin-top: 3rem
+	text-align: center
+	vertical-align: middle
+
+.aside-image__button
+	&:not(:first-of-type)
+		margin-left: 1rem
+
+.aside-image__container
+	@extend .container
+
+.aside-image__row
+	@extend .row 
+
+.aside-image__row--revresed_lg
+	+media-breakpoint-up(lg)
+		flex-direction: row-reverse
+
+.aside-image__heading
+	margin-bottom: 5rem
+	align-self: center
+	+media-breakpoint-up(lg)
+		margin-bottom: 2.5rem
+		align-self: left
+
+
+.aside-image__side-box
+	+media-breakpoint-between(md, lg)
+		order: 2
+
+.aside-image__img-link
+	display: block
+	height: 100%
+
+.aside-image__img
+	width: 100%
+	height: 100%
+
+.aside-image__img-link--displayed_lg
+	display: none
+	+media-breakpoint-only(lg)
+		display: block
+
+.aside-image__col-1
+	@extend .col-12, .col-lg-6, .col-xl-2
+	padding: 0
+	display: flex
+	flex-direction: column
+	+media-breakpoint-up(xl)
+		align-self: flex-end
+
+.aside-image__col-2
+	@extend .col-12, .col-lg-8, .col-xl-5
+	padding: 0
+	margin-top: 4rem
+	+media-breakpoint-up(lg)
+		display: none
+	+media-breakpoint-up(xl)
+		margin: 0
+		display: block
+
+.aside-image__col-3
+	@extend .col-12, .col-lg-6, .col-xl-5
+	display: flex
+	justify-content: center
+	flex-direction: column
+	padding: 0 3rem 0 4rem
+	text-align: center
+	+media-breakpoint-up(lg)
+		text-align: left
+

@@ -1,14 +1,33 @@
 .main-button
+	vertical-align: middle
 	display: inline-block
+	padding: 1.4rem 1.8rem 1.4rem 1.8rem
 	border: none
 	border-radius: 10px
+	line-height: 1
+	font-weight: bold
+	text-transform: uppercase
+	background-color: $main-light
+	color: $main-dark
+	white-space: nowrap
+	user-select: none
+	&:hover 
+		background-color: darken($main-light, 20%)
+
+.main-button--bg_accent1
+	background-color: $accent-1
+	color: $main-light
+	&:hover
+		background-color: $accent-1-dark
+
+.main-button--bg_accent2
 	background-color: $accent-2
 	color: $main-light
-	font-weight: bold
-	padding: 10px 15px 15px 15px
-	text-transform: uppercase
-	&:hover 
+	&:hover
 		background-color: $accent-2-dark
+
+.main-button--sz_small
+	padding: 1.3rem 1.6rem 1.3rem 1.6rem
 
 .main-button__text
 	font-size: 14px 

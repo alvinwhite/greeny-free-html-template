@@ -1,0 +1,25 @@
+mixin sliderRow(data)
+	+b.SECTION.slider-row.section
+		+e.background
+		+e.container
+			+e.row
+				+e.col-1
+					+e.H2.heading.section__heading--color_light Our services
+					+e.H3.subheading.section__subheading We provide it with the best quality there is
+				+e.col-2
+					+e.slider.slider__
+						+e.SVG.button-prev--border
+							use(xlink:href="#slider-row__button-prev")
+						+e.wrapper
+							+e.slide
+								+b.responsive-img
+									+e.img(src='assets/img/slider/1.jpg')
+								+e.content--in_row
+									+e.A.heading-button.heading-button__
+										+e.SVG.icon
+											use(xlink:href="#slider-row__security")
+										+e.H3.heading.slider__heading Nature protection
+									+e.description Nature really needs it and here you would explain why or how good you are at it
+						+e.SVG.button-next--border
+							use(xlink:href="#slider-row__button-next")
+									

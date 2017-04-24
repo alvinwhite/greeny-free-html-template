@@ -1,7 +1,12 @@
+'use strict';
+
 import swiper from 'swiper';
 
 const imageCollection = document.getElementsByClassName('slider__img');
 const swiperOptions = {
+	//Pagination
+	pagination: '.slider__pagination',
+	paginationClickable: true,
 	//Effects
 	effect: 'fade',
 	//Accessability
@@ -26,16 +31,24 @@ const swiperOptions = {
 	paginationCurrentClass: 'slider__pagination--current'
 };
 
+
+/**
+ * Adjust height of slider images
+ * use as a polyfill for browsers not supporting calc and vh
+ * @param  {array} images HTMLCollection or NodeList
+ * @return {object}       Returns null if no arguments are passed
+ */
 function adjustImages(images) {
 	const h = window.innerHeight - 70;
 	const w = window.innerWidth;
 	
+	if(!images) return null;
+
 		for (let i = 0; i < images.length; i++) {
 			images[i].style.height = h + 'px';
 		}
 
 };
-
 
 
 function initHero() {
@@ -48,6 +61,8 @@ function initHero() {
 		adjustImages(imageCollection);
 	});
 	*/
+
+
 }
 
 export default initHero;

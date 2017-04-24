@@ -36,12 +36,32 @@
 .slider__pagination--hidden
 	@extend .swiper-pagination-hidden
 
+
 // Custom classes
+
+.slider__pagination
+	+setAbsPosition(20px, 50%)
+	+media-breakpoint-up(xl)
+		+setAbsPosition(20px, 35%)
+
+.slider__bullet
+	display: block
+	margin-bottom: 8px
+	width: 12px
+	height: 12px
+	opacity: 0.7
+	border-radius: 50%
+	background-color: $main-light
+	cursor: pointer
+
+.slider__bullet--active
+	opacity: 1
 
 // calc used here because of the issue with DOM orientationchange event
 // TODO: provide js fallback for Opera Mini
-// P.S: seem to work fine with modern browsers anyway
-.slider__img
+// P.S: seem to work fine with all modern browsers anyway
+
+.slider__img--hero
 	height: calc(100vh - 70px)
 	min-width: 100%
 
@@ -52,7 +72,14 @@
 	+setAbsPosition(50%, 50%)
 	+media-breakpoint-up(xl)
 		+setAbsPosition(50%, 35%)
-		
+
+.slider__content--in_row
+	background-color: $accent-1-light
+	padding: 1rem 2rem 1.5rem 
+
+.slider__heading-button
+	margin-top: 1rem
+
 .slider__heading
 	color: $main-light
 	font-family: $heading-font
@@ -68,6 +95,7 @@
 		font-size: 62px
 	+media-breakpoint-up(lg)
 		font-size: 68px
+		font-size: 5.4vmax
 
 .slider__subheading
 	@extend .slider__heading 
@@ -77,7 +105,28 @@
 	@extend .slider__heading--hero 
 
 .slider__button--hero
-	margin-top: 20px
+	margin-top: 2rem
 
+.slider__description
+	color: $main-light
+	margin-top: 1rem
 
+.slider__button-prev
+	width: 24px
+	height: 24px
 
+.slider__button-next
+	@extend .slider__button-prev
+
+.slider__button-prev--border
+	&::before
+		+setAbsPosition(50%, 50%, left, top)
+		width: 100%
+		height: 100%
+		padding: 1rem
+		border-radius: 50%
+		border: 2px solid $main-light
+		content: ''
+
+.slider__button-next--border
+	@extend .slider__button-prev--border

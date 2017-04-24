@@ -1,12 +1,33 @@
 mixin outlineBoxes(data)
-	+b.SECTION.section
+	+b.SECTION.outline-boxes.section
 		+e.container
-			+e.row--center
-				+e.heading Our features
-					+e.dots
-						+e.dot
-						+e.dot
-						+e.dot
+			+e.row--centred
+				+e.H2.heading.section__heading--center Our features
+					+e.dots.section__dots
+						+e.dot.section__dot
+						+e.dot.section__dot
+						+e.dot.section__dot
 
 		+e.container
-			+e.row
+			+e.row--centred
+				+e.col
+					+b.outline-box
+						+e.circle
+							+e.SVG.icon
+								use(xlink:href='#outline-box__android')
+						+e.heading Box heading
+						+e.content Lorem ipsum dolor sit amet, coectetur adipisicing elit, sed. Utenim anim ostrud exercitats nicillum dolore eu fugiat nulriatur. Proident, sunt in culpa qui officia deserunt mollit ani.
+				+e.col
+					+b.outline-box
+						+e.circle
+							+e.SVG.icon
+								use(xlink:href='#outline-box__blocks')
+						+e.heading Box heading
+						+e.content Lorem ipsum dolor sit amet, coectetur adipisicing elit, sed. Utenim anim ostrud exercitats nicillum dolore eu fugiat nulriatur. Proident, sunt in culpa qui officia deserunt mollit ani.
+				+e.col
+					+b.outline-box
+						+e.circle
+							+e.SVG.icon
+								use(xlink:href='#outline-box__card')
+						+e.heading Box heading
+						+e.content Lorem ipsum dolor sit amet, coectetur adipisicing elit, sed. Utenim anim ostrud exercitats nicillum dolore eu fugiat nulriatur. Proident, sunt in culpa qui officia deserunt mollit ani.

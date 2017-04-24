@@ -1,0 +1,30 @@
+.slider-row
+	position: relative
+	&::before
+		+setAbsPosition(0%,0%,left,top)
+		display: block
+		width: 100%
+		height: 42%
+		content: ''
+		background-color: $accent-2
+
+.slider-row__container
+	@extend .container
+	
+.slider-row__row
+	@extend .row
+
+.slider-row__col-1
+	@extend .col-12, .col-xl-4
+
+.slider-row__col-2
+	@extend .col-12, .col-xl-8
+
+.slider-row__heading
+	z-index: 2
+
+.slider-row__subheading
+	z-index: 2
+
+.slider-row__slider
+	display: flex

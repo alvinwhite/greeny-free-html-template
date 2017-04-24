@@ -1,0 +1,28 @@
+.outline-boxes
+
+.outline-boxes__container
+	@extend .container
+
+.outline-boxes__row
+	@extend .row 
+
+.outline-boxes__row--centred
+	justify-content: center
+	.features__col
+		flex-grow: 0
+
+.outline-boxes__col
+	@extend .col-12, .col-lg-6, .col-xl-4
+	margin-top: 5rem
+	&:first-of-type
+		margin-top: 0
+	+media-breakpoint-up(lg)
+		&:nth-of-type(2)
+			margin-top: 0
+	+media-breakpoint-up(xl)
+		&:nth-of-type(n)
+			margin-top: 0
+
+.outline-boxes__heading
+	margin-bottom: 60px 
+

@@ -1,0 +1,24 @@
+.side-box
+	padding: 2rem 2.5rem 2rem 2.5rem
+	text-align: right
+	background-color: $accent-1-dark	
+
+.side-box__heading
+	position: relative
+	margin-bottom: 1rem
+	padding-bottom: 1rem
+	font-family: $heading-font
+	font-size: 2.4rem
+	color: $main-light
+	&::after
+		+setAbsPosition(0px, 0px, right, bottom)
+		display: block
+		width: 3rem
+		height: 2px
+		content: ''
+		background-color: $main-light
+
+.side-box__text
+	font-size: 1.6rem
+	color: $main-light
+	text-align: right

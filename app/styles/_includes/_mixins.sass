@@ -1,19 +1,25 @@
 =font-face--otf($family, $path, $weight: normal, $style: normal)
-  @font-face
-    font-family: $family
-    src: url('#{$path}.otf') format('opentype')
-    font-weight: $weight
-    font-style: $style
+	@font-face
+		font-family: $family
+		src: url('#{$path}.otf') format('opentype')
+		font-weight: $weight
+		font-style: $style
 
 =font-face--ttf($family, $path, $weight: normal, $style: normal)
-  @font-face
-    font-family: $family
-    src: url('#{$path}.ttf') format('truetype')
-    font-weight: $weight
-    font-style: $style
+	@font-face
+		font-family: $family
+		src: url('#{$path}.ttf') format('truetype')
+		font-weight: $weight
+		font-style: $style
 
 =setAbsPosition($x, $y, $xDirection: left, $yDirection: top)
-    position: absolute
-    #{$xDirection}: $x
-    #{$yDirection}: $y
-    transform: translate(-$x, -$y)
+		
+	position: absolute
+	#{$xDirection}: $x
+	#{$yDirection}: $y
+	@if unit($x) == "%" and unit($y) == "%"
+		transform: translate(-$x,-$y) 
+	@else if unit($x) == "%"
+		transform: translateX(-$x)
+	@else if unit($y) == "%" 
+		transform: translateY(-$y)

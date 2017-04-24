@@ -2,7 +2,10 @@ extends /templates/layout/_layout.pug
 
 include /templates/nav-bar/_nav-bar.pug
 include /templates/hero/_hero.pug
-include /templates/outline-boxes/_outline-boxes
+include /templates/outline-boxes/_outline-boxes.pug
+include /templates/aside-image/_aside-image.pug
+include /templates/slider-row/_slider-row.pug
+include /templates/tree-tabs/_tree-tabs.pug
 
 block head
 	- var pageTitle = 'Greeny';
@@ -13,4 +16,7 @@ block content
 	+navBar()
 	+hero()
 	+outlineBoxes()
+	+asideImage()
+	+sliderRow()
+
 	- var scripts = ['index.js']
