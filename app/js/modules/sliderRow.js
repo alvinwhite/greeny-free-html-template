@@ -5,20 +5,17 @@ import swiper from 'swiper';
 const swiperOptions = {
 	//Slides grid
 	slidesPerView: 3,
+	spaceBetween: 10,
 	//Breakpoints
 	breakpoints: {
-		320: {
-			slidesPerView: 1,
-			spacebetween: 10
-		},
-		480: {
-			slidesPerView: 2,
-			spaceBetween: 20
+		640: {
+			sliderPerView: 1,
+			spaceBetween: 10
 		}
 	},
 	//Navigation Buttons
-	nextButton: '.slider__button-next',
-	prevButton: 'slider__button-prev',
+	nextButton: '.slider-row__button-next',
+	prevButton: '.slider-row__button-prev',
 	//Accessability
 	ally: true,
 	//NameSpace

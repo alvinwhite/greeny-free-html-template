@@ -1,25 +1,53 @@
 mixin sliderRow(data)
-	+b.SECTION.slider-row.section
+	+b.SECTION.slider-row.section--slider-row
 		+e.background
 		+e.container
 			+e.row
 				+e.col-1
-					+e.H2.heading.section__heading--color_light Our services
-					+e.H3.subheading.section__subheading We provide it with the best quality there is
-				+e.col-2
-					+e.slider.slider__
+					+e.H4.upper-subheading We provide the best of it 
+					+e.H2.heading.section__heading.--color_light.--slider-row Our services
+					+e.buttons
 						+e.SVG.button-prev--border
 							use(xlink:href="#slider-row__button-prev")
+						+e.SVG.button-next--border
+							use(xlink:href="#slider-row__button-next")
+				+e.col-2
+					+e.slider.slider__
 						+e.wrapper
 							+e.slide
 								+b.responsive-img
-									+e.img(src='assets/img/slider/1.jpg')
-								+e.content--in_row
+									+e.img.slider-row__img(src='assets/img/slider/1.jpg')
+								+e.content.slider-row__slide-content
 									+e.A.heading-button.heading-button__
 										+e.SVG.icon
 											use(xlink:href="#slider-row__security")
 										+e.H3.heading.slider__heading Nature protection
-									+e.description Nature really needs it and here you would explain why or how good you are at it
-						+e.SVG.button-next--border
-							use(xlink:href="#slider-row__button-next")
+									+e.description.slider-row__slide-description Nature really needs it and here you would explain why or how good you are at it
+							+e.slide
+								+b.responsive-img
+									+e.img.slider-row__img(src='assets/img/slider/1.jpg')
+								+e.content.slider-row__slide-content
+									+e.A.heading-button.heading-button__
+										+e.SVG.icon
+											use(xlink:href="#slider-row__security")
+										+e.H3.heading.slider__heading Nature protection
+									+e.description.slider-row__slide-description Nature really needs it and here you would explain why or how good you are at it
+							+e.slide
+								+b.responsive-img
+									+e.img.slider-row__img(src='assets/img/slider/1.jpg')
+								+e.content.slider-row__slide-content
+									+e.A.heading-button.heading-button__
+										+e.SVG.icon
+											use(xlink:href="#slider-row__security")
+										+e.H3.heading.slider__heading Nature protection
+									+e.description.slider-row__slide-description Nature really needs it and here you would explain why or how good you are at it
+							+e.slide
+								+b.responsive-img
+									+e.img.slider-row__img(src='assets/img/slider/1.jpg')
+								+e.content.slider-row__slide-content
+									+e.A.heading-button.heading-button__
+										+e.SVG.icon
+											use(xlink:href="#slider-row__security")
+										+e.H3.heading.slider__heading Nature protection
+									+e.description.slider-row__slide-description Nature really needs it and here you would explain why or how good you are at it
 									

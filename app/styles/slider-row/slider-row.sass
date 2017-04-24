@@ -4,7 +4,7 @@
 		+setAbsPosition(0%,0%,left,top)
 		display: block
 		width: 100%
-		height: 42%
+		height: 50%
 		content: ''
 		background-color: $accent-2
 
@@ -21,10 +21,37 @@
 	@extend .col-12, .col-xl-8
 
 .slider-row__heading
+	text-align: center
 	z-index: 2
 
-.slider-row__subheading
-	z-index: 2
+.slider-row__buttons
+	text-align: center
 
-.slider-row__slider
-	display: flex
+.slider-row__img
+	+media-breakpoint-up(xl)
+		height: 155px
+
+.slider-row__upper-subheading
+	margin-top: 1rem
+	margin-bottom: 0
+	text-align: center
+	font-size: 14px 
+	font-weight: 300
+	color: $main-light
+
+.slider-row__slide-content
+	background-color: $accent-1-light
+	padding: 1rem 2rem 1.5rem 
+
+.slider-row__slide-description
+	color: $main-light
+	margin-top: 1rem
+
+.slider-row__button-prev
+	position: relative
+	width: 36px
+	height: 36px
+	z-index: 3
+
+.slider-row__button-next
+	@extend .slider-row__button-prev

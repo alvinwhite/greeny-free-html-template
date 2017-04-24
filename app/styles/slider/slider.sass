@@ -73,10 +73,6 @@
 	+media-breakpoint-up(xl)
 		+setAbsPosition(50%, 35%)
 
-.slider__content--in_row
-	background-color: $accent-1-light
-	padding: 1rem 2rem 1.5rem 
-
 .slider__heading-button
 	margin-top: 1rem
 
@@ -107,26 +103,4 @@
 .slider__button--hero
 	margin-top: 2rem
 
-.slider__description
-	color: $main-light
-	margin-top: 1rem
 
-.slider__button-prev
-	width: 24px
-	height: 24px
-
-.slider__button-next
-	@extend .slider__button-prev
-
-.slider__button-prev--border
-	&::before
-		+setAbsPosition(50%, 50%, left, top)
-		width: 100%
-		height: 100%
-		padding: 1rem
-		border-radius: 50%
-		border: 2px solid $main-light
-		content: ''
-
-.slider__button-next--border
-	@extend .slider__button-prev--border
