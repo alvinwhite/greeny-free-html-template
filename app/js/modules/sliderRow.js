@@ -8,9 +8,11 @@ const swiperOptions = {
 	spaceBetween: 10,
 	//Breakpoints
 	breakpoints: {
-		640: {
-			sliderPerView: 1,
-			spaceBetween: 10
+		498: {
+			slidesPerView: 1,
+		},
+		996: {
+			slidesPerView: 2
 		}
 	},
 	//Navigation Buttons

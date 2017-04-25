@@ -20,6 +20,11 @@
 .slider-row__col-2
 	@extend .col-12, .col-xl-8
 
+.slider-row__slider
+	margin-top: 2rem
+	+media-breakpoint-up(xl)
+		margin-top: 0
+
 .slider-row__heading
 	text-align: center
 	z-index: 2
@@ -28,8 +33,9 @@
 	text-align: center
 
 .slider-row__img
+	width: 100%
 	+media-breakpoint-up(xl)
-		height: 155px
+		height: 150px
 
 .slider-row__upper-subheading
 	margin-top: 1rem
@@ -52,6 +58,7 @@
 	width: 36px
 	height: 36px
 	z-index: 3
+	cursor: pointer
 
 .slider-row__button-next
 	@extend .slider-row__button-prev

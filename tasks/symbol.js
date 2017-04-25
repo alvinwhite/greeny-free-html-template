@@ -27,6 +27,7 @@ module.exports = (options) => {
 				},
 
 				mode: {
+
 					symbol: {
 						dest: '.',
 						sprite: 'symbol.svg',
@@ -40,6 +41,7 @@ module.exports = (options) => {
 							}
 						}
 					}
+					
 				}
 
 			}))
