@@ -6,8 +6,38 @@
 .tree-tabs__row
 	@extend .row
 
+.tree-tabs__row--centred
+	justify-content: center
+
 .tree-tabs__heading
+	margin-bottom: 6rem
+
+.tree-tabs__tree
+	width: 400px
+	height: 450px
+
+.tree-tabs__tab-controls
+	+setAbsPosition(56%,28%,left,top)
+	+media-breakpoint-up(lg)
+		+setAbsPosition(72%,28%,left,top)
+	+media-breakpoint-up(xl)
+		+setAbsPosition(62%,28%,left,top)
+	.tab-controls__control
+		position: relative
+		&:nth-child(2)
+			top: -50px
+			transform: scale(0.8)
+		&:nth-child(3)
+			bottom: -20px
+			transform: scale(0.8)
+
+
 
 .tree-tabs__col-1
+	@extend .col-12, .col-lg-7
+	display: flex
+	align-items: center
 
 .tree-tabs__col-2
+	@extend .col-12, .col-lg-5
+	text-align: center
