@@ -1,0 +1,101 @@
+.team-card
+	width: 270px
+	background-color: $accent-1-light
+	overflow-x: hidden
+
+.team-card__img
+	width: 100%
+	height: auto 
+
+.team-card__content
+	position: relative
+	text-align: center
+	color: $main-light
+	background-color: $accent-1-light
+	z-index: 1
+
+	&:hover
+		.team-card__name::after
+			width: 20%
+
+.team-card__name
+	position: relative
+	margin: 1rem 0 0.5rem
+	padding-bottom: 0.5rem
+	display: inline-block 
+	font-family: $heading-font
+	font-size: 2.4rem
+	&::after
+		position: absolute
+		bottom: 0
+		left: 0
+		display: block
+		content: ''
+		width: 0
+		height: 1px
+		background-color: $main-light
+		transition: width 200ms 
+
+.team-card__ellipse
+	position: absolute
+	width: 245px
+	height: 140px
+	border-radius: 50%
+	background-color: $accent-1-light 
+	z-index: -1
+
+	&:nth-child(1)
+		top: -2.5rem
+		left: -6.6rem
+
+	&:nth-child(2)
+		height: 90px
+		top: -35px
+		left: -100px
+		opacity: 0.5
+
+	&:nth-child(3)
+		height: 90px
+		top: -34px
+		right: -80px
+
+	&:nth-child(4)
+		height: 90px
+		top: -48px
+		right: -98px
+		opacity: 0.5
+
+
+.team-card__position
+	margin-bottom: 1.5rem
+	padding: 0 5rem 
+	font-weight: 300
+
+.team-card__socials
+	margin-bottom: 1.5rem 
+
+.team-card__button-row
+	padding-bottom: 1.5rem 
+	display: flex
+	justify-content: space-between
+
+.team-card__stripes
+	display: flex
+	flex-direction: column
+	justify-content: space-between
+
+.team-card__stripes--right
+	align-items: flex-end 
+
+.team-card__stripes--left
+	align-items: flex-start 
+
+.team-card__stripe
+	display: block
+	height: 2px
+	//width: 35px 
+	background-color: $main-light
+	&:nth-child(2)
+		//width: 25px
+
+

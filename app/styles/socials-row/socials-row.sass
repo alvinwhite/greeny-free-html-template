@@ -1,0 +1,33 @@
+.socials-row
+	padding: 0
+	display: flex
+	flex-direction: row
+	flex-wrap: nowrap
+	justify-content: center
+
+.socials-row__item
+	position: relative
+	z-index: 0
+	margin: 0 0.5rem
+	&:hover
+		.socials-row__background
+			background-color: $main-light
+		.socials-row__icon
+			fill: $accent-1-light
+
+.socials-row__background
+	+setAbsPosition(50%,50%,left,top)
+	padding: 1rem
+	width: 100%
+	height: 100%
+	border: 1px solid $main-light
+	border-radius: 50%
+	z-index: -1
+	transition: background-color 200ms
+
+.socials-row__icon
+	vertical-align: middle
+	width: 20px
+	height: 20px 
+	fill: $main-light
+	transition: fill 200ms 

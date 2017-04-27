@@ -2,17 +2,21 @@
 	vertical-align: middle
 	display: inline-block
 	padding: 1.3rem 3.2rem 1.3rem 3.2rem
-	border: 1px solid $main-dark
+	border: 1px solid $main-light
 	border-radius: 10px
 	line-height: 1.1
 	font-weight: bold
 	text-transform: uppercase
 	color: $main-light
+	background-color: $accent-1-light
 	white-space: nowrap
 	user-select: none
+	cursor: pointer
+	z-index: 0
+	transition: background-color 250ms, color 250ms
 	&:hover 
-		color: $main-light 
-		background-color: $main-dark
+		color: $accent-1-light
+		background-color: $main-light
 
 .outline-button--color_accent1
 	border-color: $accent-1
@@ -30,14 +34,60 @@
 		background-color: $accent-2
 		color: $main-light
 
-.outline-button--sz_small
-	padding: 1.2rem 2.9rem 1.2rem 2.9rem
+.outline-button--transparent
+	border-color: $main-light
+	background-color: transparent
+	color: $main-light
+
+.outline-button--sz_sm
+	padding: 1.2rem 2.9rem 
+
+.outline-button--sz_xs
+	padding: 1rem 2rem
+
+.outline-button--aside
+	position: relative
+	padding: 1rem 1rem 1rem 1.5rem 
+	&:after
+		+setAbsPosition(38px,0%,right,top)
+		display: block
+		content: ''
+		background-color: $main-light
+		width: 1px
+		height: 100%
+	&:before
+		+setAbsPosition(0%,0%,right,top)
+		display: block
+		content: ''
+		background-color: $main-light
+		width: 38px
+		height: 100%
+		border: 1px solid $main-light
+		border-top-right-radius: 10px
+		border-bottom-right-radius: 10px 
+		opacity: 0
+		transition: opacity 200ms
+		z-index: -1
+	&:hover
+		background-color: transparent
+		color: $main-light
+		&:before
+			opacity: 1
+		.outline-button__icon--aside
+			fill: $accent-1 
 
 .outline-button__text
-	font-size: 14px 
+	font-size: 1.4rem 
 
 .outline-button__icon
-	padding-left: 5px
+	width: 18px
+	height: 18px
+	margin-left: 0.5rem
+
+.outline-button__icon--aside
+	margin-left: 2rem
+	fill: $main-light
+	z-index: 2
 
 .outline-button__icon, .outline-button__text
 	vertical-align: middle

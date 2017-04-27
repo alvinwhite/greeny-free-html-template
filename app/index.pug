@@ -6,6 +6,10 @@ include /templates/outline-boxes/_outline-boxes.pug
 include /templates/aside-image/_aside-image.pug
 include /templates/slider-row/_slider-row.pug
 include /templates/tree-tabs/_tree-tabs.pug
+include /templates/numbers-row/_numbers-row.pug
+include /templates/team-cards/_team-cards.pug
+include /templates/gallery/_gallery.pug
+include /templates/fw-boxes/_fw-boxes.pug
 
 block head
 	- var pageTitle = 'Greeny';
@@ -19,5 +23,9 @@ block content
 	+asideImage()
 	+sliderRow()
 	+treeTabs()
+	+numbersRow()
+	+teamCards()
+	+gallery()
+	+fwBoxes()
 
 	- var scripts = ['index.js']

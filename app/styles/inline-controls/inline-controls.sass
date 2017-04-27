@@ -1,0 +1,24 @@
+.inline-controls
+	display: flex
+	padding: 0
+	flex-flow: row nowrap
+	font-family: $heading-font
+	font-size: 2.4rem
+	font-weight: 800
+
+.inline-controls__item
+	position: relative
+	display: block 
+	&:nth-of-type(n+2)
+		padding-left: 2.5rem
+		&::before
+			+setAbsPosition(1.2rem,50%,left,top)
+			display: block
+			width: 5px
+			height: 5px
+			border-radius: 50%
+			content: ''
+			background-color: $accent-1
+
+.inline-controls__link
+	color: $main-dark

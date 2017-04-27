@@ -6,7 +6,7 @@
 	justify-content: center
 	background-color: $accent-1
 	color: $main-light
-	transition: all 200ms
+	transition: background-color 200ms, opacity 200ms, transform 210ms
 	z-index: 2
 	// Hack with ::after, used because ::after with a flex element
 	// doesn't respond to width: 100% property as expected  
@@ -23,7 +23,7 @@
 			border: none
 			border-right: $accent-2 solid 2px
 			border-left: $accent-2 solid 2px
-			
+	//"Shadow"
 	&::after
 		box-sizing: content-box
 		position: absolute

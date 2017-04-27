@@ -1,0 +1,42 @@
+.numbers-row 
+	padding: 3rem 0
+	text-align: center
+	background-color: $accent-1
+	color: $main-light
+
+.numbers-row__container
+	@extend .container
+
+.numbers-row__row
+	@extend .row
+
+.numbers-row__col
+	@extend .col-6, .col-lg-3
+	border-left: 2px solid $accent-1-light
+
+	&:nth-of-type(2n)
+		border-right: 2px solid $accent-1-light
+	&:nth-of-type(n+3)
+		padding-top: 3rem
+
+	+media-breakpoint-up(lg)
+
+		&:not(:last-of-type)
+			border-right: none
+		&:nth-of-type(n+3)
+			padding-top: 0
+
+
+
+.numbers-row__icon
+	width: 36px
+	height: 36px 
+
+.numbers-row__number
+	margin-top: 0.8rem
+	font-size: 3rem
+	font-weight: bold
+
+.numbers-row__description
+	margin-top: 0.5rem
+	font-size: 1.4rem

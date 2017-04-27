@@ -2,6 +2,7 @@
 	@extend .container-fluid
 	background-color: $accent-2-dark
 	overflow-x: hidden
+	padding: 0
 
 .hero__row
 	@extend .row
@@ -20,3 +21,5 @@
 		bottom: 0
 		left: 0
 		margin: 0
+	@media (max-height: 768px)
+		position: static

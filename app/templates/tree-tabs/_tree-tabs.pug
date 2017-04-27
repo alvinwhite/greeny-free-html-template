@@ -35,18 +35,20 @@ mixin treeTabs(data)
 									use(xlink:href="#bullet-list__bullet")
 								+e.text We respect your opinion and love feedback					
 				+e.col-2
-					+e.SVG.tree
-						use(xlink:href="#tree-tabs__tree")
-					+e.tab-controls.tab-controls__
-						+e.control--active(role="button")
-							+e.icon-bg
-								+e.SVG.icon
-									use(xlink:href="#tab-controls__lightbulb")
-						+e.control(role="button")
-							+e.icon-bg
-								+e.SVG.icon
-									use(xlink:href="#tab-controls__people")
-						+e.control(role="button")
-							+e.icon-bg
-								+e.SVG.icon
-									use(xlink:href="#tab-controls__work")
+					+e.tree-wrapper
+						+e.tree-block
+							+e.SVG.tree
+								use(xlink:href="#tree-tabs__tree")
+							+e.tab-controls.tab-controls__.--reversed_sm
+								+e.control--active(role="button")
+									+e.icon-bg
+										+e.SVG.icon
+											use(xlink:href="#tab-controls__lightbulb")
+								+e.control(role="button")
+									+e.icon-bg
+										+e.SVG.icon
+											use(xlink:href="#tab-controls__people")
+								+e.control(role="button")
+									+e.icon-bg
+										+e.SVG.icon
+											use(xlink:href="#tab-controls__work")

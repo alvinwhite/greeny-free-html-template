@@ -1,25 +1,139 @@
 mixin teamCards(data)
 	+b.SECTION.team-cards.section
 		+e.container
-			+e.row
-				+e.heading.section__heading.section__heading--center Our team
+			+e.row--centred
+				+e.heading.section-heading__.--centred Our team
+					+e.dots
+						+e.dot
+						+e.dot
+						+e.dot
 
 			+e.row
-				+b.team-card
-					+e.img
-					+e.name
-					+e.position
-					+e.UL.socials.socials-row__
-						+e.item
-							+e.border
-							+e.icon
-					+e.button-row
-						+b.stripes--left
-							+e.stripe
-							+e.stripe
-							+e.stripe
-						+b.button
-						+b.stripes--right
-							+e.stripe
-							+e.stripe
-							+e.stripe
+				+e.col
+					+e.card.team-card__
+						+e.img(src='assets/img/team-cards/team-member.jpg')
+						+e.content
+							+e.ellipses
+								+e.ellipse
+								+e.ellipse
+								+e.ellipse
+								+e.ellipse
+							+e.name John Doe 
+							+e.position Senior web-developer
+							+e.UL.socials.socials-row__
+								+e.A.item
+									+e.background
+									+e.SVG.icon
+										use(xlink:href="#socials-row__github")
+								+e.A.item
+									+e.background
+									+e.SVG.icon
+										use(xlink:href="#socials-row__github")
+								+e.A.item
+									+e.background
+									+e.SVG.icon
+										use(xlink:href="#socials-row__github")
+								+e.A.item
+									+e.background
+									+e.SVG.icon
+										use(xlink:href="#socials-row__github")
+							+e.button-row
+								+e.stripes--left
+									+e.stripe
+									+e.stripe
+									+e.stripe
+								+b.BUTTON.outline-button--sz_xs
+									+e.text Read more
+								+e.stripes--right
+									+e.stripe
+									+e.stripe
+									+e.stripe
+
+				+e.col
+					+e.card.team-card__
+						+e.img(src='assets/img/team-cards/team-member.jpg')
+						+e.content
+							+e.ellipses
+								+e.ellipse
+								+e.ellipse
+								+e.ellipse
+								+e.ellipse
+							+e.name John Doe
+							+e.position Senior web-developer
+							+e.UL.socials.socials-row__
+								+e.A.item
+									+e.background
+									+e.SVG.icon
+										use(xlink:href="#socials-row__github")
+								+e.A.item
+									+e.background
+									+e.SVG.icon
+										use(xlink:href="#socials-row__github")
+								+e.A.item
+									+e.background
+									+e.SVG.icon
+										use(xlink:href="#socials-row__github")
+								+e.A.item
+									+e.background
+									+e.SVG.icon
+										use(xlink:href="#socials-row__github")
+							+e.button-row
+								+e.stripes--left
+									+e.stripe
+									+e.stripe
+									+e.stripe
+								+b.BUTTON.outline-button--sz_xs
+									+e.text Read more
+								+e.stripes--right
+									+e.stripe
+									+e.stripe
+									+e.stripe
+				+e.col
+					+e.card.team-card__
+						+e.img(src='assets/img/team-cards/team-member.jpg')
+						+e.content
+
+							+e.ellipses
+								+e.ellipse
+								+e.ellipse
+								+e.ellipse
+								+e.ellipse
+
+							+e.name John Doe
+							+e.position Senior web-developer
+
+							+e.UL.socials.socials-row__
+
+								+e.A.item
+									+e.background
+									+e.SVG.icon
+										use(xlink:href="#socials-row__github")
+
+								+e.A.item
+									+e.background
+									+e.SVG.icon
+										use(xlink:href="#socials-row__github")
+
+								+e.A.item
+									+e.background
+									+e.SVG.icon
+										use(xlink:href="#socials-row__github")
+
+								+e.A.item
+									+e.background
+									+e.SVG.icon
+										use(xlink:href="#socials-row__github")
+
+							+e.button-row
+								+e.stripes--left
+									+e.stripe
+									+e.stripe
+									+e.stripe
+
+								+b.BUTTON.outline-button--sz_xs
+									+e.text Read more
+
+								+e.stripes--right
+									+e.stripe
+									+e.stripe
+									+e.stripe

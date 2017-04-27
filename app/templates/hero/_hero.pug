@@ -4,19 +4,22 @@ mixin hero(data)
 		+e.row
 			+e.slider.slider__
 				+e.wrapper
+
 					+e.slide
 						+e.img--hero(src='assets/img/slider/1.jpg')
 						+e.content--hero
 							+e.H1.heading--hero This is a hero headline
 							+e.H2.subheading--hero Learn more about it
-							+e.BUTTON.button--hero.main-button--bg_accent2.main-button__ 
+							+e.BUTTON.button--hero.main-button__.--bg_accent2 
 								+e.SPAN.text Learn more 
 								+e.SVG.icon.arrow-icon__
 									use(xlink:href='#arrow-icon__arrow2')
+
 					+e.slide
 						+e.img--hero(src='assets/img/slider/2.jpg')
 						+e.content--hero
 							+e.H1.heading--hero HELLO WORLD!
+					
 					+e.slide
 						+e.img--hero(src='assets/img/slider/1.jpg')
 				+e.pagination
@@ -25,9 +28,11 @@ mixin hero(data)
 			+b.hover-box--faded
 				+e.heading This heading is waiting to become valuable.
 				+e.content Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do esmod tempor inciddo quis nostrud exer aliquip ex ea
+
 			+b.hover-box--faded
 				+e.heading This is a heading of much less value
 				+e.content Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do esmod tempor inciddo quis nostrud aliquip ex ea cmodo
+
 			+b.hover-box--faded
 				+e.heading This heading has no value yet it’s the longest one.
 				+e.content Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do esmod tempor inciddo quis nostris ut aliquip ex ea codo

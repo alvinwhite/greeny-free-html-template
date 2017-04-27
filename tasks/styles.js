@@ -15,7 +15,7 @@ function getPreprocessor() {
 		if(cfg.preprocessor === 'sass') {
 			return $.sass({
 				outputStyle: 'expanded',
-				includePaths: ['./node_modules']
+				includePaths: ['./node_modules/']
 			});
 		}
 

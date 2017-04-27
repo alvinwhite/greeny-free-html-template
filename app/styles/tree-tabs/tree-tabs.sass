@@ -1,4 +1,5 @@
 .tree-tabs
+	padding-bottom: 0
 
 .tree-tabs__container
 	@extend .container
@@ -12,26 +13,55 @@
 .tree-tabs__heading
 	margin-bottom: 6rem
 
+.tree-tabs__tree-block
+	position: relative
+	display: inline-block
+	text-align: center
+
 .tree-tabs__tree
-	width: 400px
-	height: 450px
+	position: relative
+	bottom: -3px
+	margin-top: 4rem
+	width: 220px
+	height: 220px
+	opacity: 0.3
+	transition: all 200ms 
+	+media-breakpoint-up(sm)
+		opacity: 1
+		width: 400px
+		height: 400px
+	+media-breakpoint-up(lg)
+		width: 450px
+		height: 450px
+		margin-top: 0
 
 .tree-tabs__tab-controls
-	+setAbsPosition(56%,28%,left,top)
-	+media-breakpoint-up(lg)
-		+setAbsPosition(72%,28%,left,top)
-	+media-breakpoint-up(xl)
-		+setAbsPosition(62%,28%,left,top)
+	+setAbsPosition(50%,35%,left,top)
 	.tab-controls__control
 		position: relative
 		&:nth-child(2)
-			top: -50px
-			transform: scale(0.8)
-		&:nth-child(3)
-			bottom: -20px
-			transform: scale(0.8)
+			padding: 0 1rem
 
+	+media-breakpoint-up(sm)
+		+setAbsPosition(55%,32%,left,top)
+		padding: 0
+		.tab-controls__control
+			&:nth-child(2)
+				top: -45px
+				right: -10px
+				padding: 0
+			&:nth-child(3)
+				bottom: -25px
+			&--active
+				transform: scale(0.95)
 
+	+media-breakpoint-up(lg)
+		+setAbsPosition(55%,25%,left,top)
+		.tab-controls__control
+			&:nth-child(2)
+				top: -55px
+			&:nth-child(3)
+				right: -10px
 
 .tree-tabs__col-1
 	@extend .col-12, .col-lg-7
