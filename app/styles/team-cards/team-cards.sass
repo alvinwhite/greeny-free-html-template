@@ -18,5 +18,21 @@
 	@extend .col-12, .col-lg-6, .col-xl-4
 	text-align: center
 
+	+media-breakpoint-up(md)
+		&:nth-child(n+2)
+			margin-top: 4rem 
+
+	+media-breakpoint-up(lg)
+		&:nth-child(2)
+			margin-top: 0
+		&:nth-child(n+3)
+			margin-top: 4rem 
+			
+	+media-breakpoint-up(xl)
+		&:nth-child(n)
+			margin-top: 0 
+		&:nth-child(n+4)
+			margin-top: 4rem 
+
 .team-cards__card
 	display: inline-block 

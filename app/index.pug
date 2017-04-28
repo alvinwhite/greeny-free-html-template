@@ -10,6 +10,7 @@ include /templates/numbers-row/_numbers-row.pug
 include /templates/team-cards/_team-cards.pug
 include /templates/gallery/_gallery.pug
 include /templates/fw-boxes/_fw-boxes.pug
+include /templates/news-row/_news-row.pug
 
 block head
 	- var pageTitle = 'Greeny';
@@ -27,5 +28,6 @@ block content
 	+teamCards()
 	+gallery()
 	+fwBoxes()
+	+newsRow()
 
 	- var scripts = ['index.js']
