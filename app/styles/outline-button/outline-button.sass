@@ -60,19 +60,20 @@
 		display: block
 		content: ''
 		background-color: $main-light
-		width: 38px
+		width: 0
 		height: 100%
 		border: 1px solid $main-light
 		border-top-right-radius: 10px
 		border-bottom-right-radius: 10px 
 		opacity: 0
-		transition: opacity 200ms
+		transition: opacity 200ms, width 200ms
 		z-index: -1
 	&:hover
 		background-color: transparent
 		color: $main-light
 		&:before
 			opacity: 1
+			width: 38px 
 		.outline-button__icon--aside
 			fill: $accent-1 
 

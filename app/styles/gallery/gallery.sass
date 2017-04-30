@@ -1,12 +1,16 @@
 .gallery 
 	padding-bottom: 0
 
+.gallery-grid
+
 .gallery__container 
 	@extend .container-fluid
 	padding: 0
 
 .gallery__row
 	@extend .row, .no-gutters
+
+.gallery__row--centred
 	justify-content: center
 	text-align: center
 
@@ -22,12 +26,29 @@
 	padding: 0 1rem 
 
 .gallery__controls
-	margin: 4rem 0 3rem
+	margin: 3.5rem 0 3.5rem
 
 .gallery__img-links
+	position: relative
+	display: block
 	width: 100%
 	height: 100%
+	&::after
+		position: absolute
+		top: 0
+		left: 0
+		display: block
+		width: 100%
+		height: 100%
+		content: ''
+		background-color: $accent-1-light
+		opacity: 0
+		transition: opacity 200ms
+		z-index: 4
+	&:hover
+		&::after
+			opacity: 0.6
 
 .gallery__img
 	width: 100%
-	height: auto 
+	height: 100%

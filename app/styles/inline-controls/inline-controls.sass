@@ -10,15 +10,33 @@
 	position: relative
 	display: block 
 	&:nth-of-type(n+2)
-		padding-left: 2.5rem
+		margin-left: 2.5rem
 		&::before
-			+setAbsPosition(1.2rem,50%,left,top)
+			+setAbsPosition(-1.5rem,50%,left,top)
 			display: block
 			width: 5px
 			height: 5px
 			border-radius: 50%
 			content: ''
 			background-color: $accent-1
-
+	
 .inline-controls__link
 	color: $main-dark
+	&:hover
+		&::after
+			width: 100%
+	&::after
+		position: absolute
+		bottom: -0.8rem
+		left: 0
+		display: block
+		content: ''
+		width: 0px
+		height: 4px
+		border-radius: 4px
+		background-color: $accent-2
+		transition: width 200ms
+
+.inline-controls__link--active
+	&::after
+		width: 100%

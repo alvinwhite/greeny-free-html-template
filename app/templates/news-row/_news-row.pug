@@ -2,7 +2,7 @@ mixin newsRow(data)
 	+b.SECTION.news-row.section
 		+e.container
 			+e.row--centred 
-				+e.section-heading.--centred Latest news
+				+e.H2.heading.section-heading__.--centred Latest news
 					+e.dots
 						+e.dot
 						+e.dot
@@ -10,18 +10,79 @@ mixin newsRow(data)
 		+e.container
 			+e.row
 				+e.col
-					+e.slider
+					+e.slider.slider
 
 						.slider__wrapper
 
-						+e.slide.slider__slide
-							+e.ARTICLE.post
-								+e.post-img
-								+e.H2.post-heading Climate change: is it coming after all?
-								+e.P.post-text Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod incididunt ut labore et dolore magna aliqua...
-								+e.A.button.link-button__.--color_accent-light
-									+e.text Read more 
-									+e.icon
+							+e.slide.slider__slide
+								+e.ARTICLE.post
+									+e.A.post-img-link(href="#")
+										+e.post-img(src="assets/img/news-row/post-img.jpg")
+									+e.H3.post-heading Climate change: is it coming?
+									+e.P.post-text Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod incididunt ut labore et dolore magna aliqua...
+									+e.A.button.link-button__.--color_accent-light(href="#")
+										+e.text Read more 
+										+e.SVG.icon.arrow-icon
+											use(xlink:href="#arrow-icon__arrow2")
+								+e.FOOTER.footer
+									+e.footer-boxes
+										+e.A.footer-box.comment-box__(href="#")
+											+e.SVG.icon
+												use(xlink:href="#news-row__comment")
+											+e.SPAN.number 486
+										+e.A.footer-box.views-box__(href="#")
+											+e.SVG.icon
+												use(xlink:href="#news-row__views")
+											+e.SPAN.number 1255
+									+e.date December 26,2017
+
+							+e.slide.slider__slide
+								+e.ARTICLE.post
+									+e.A.post-img-link(href="#")
+										+e.post-img(src="assets/img/news-row/post-img.jpg")
+									+e.H3.post-heading Climate change: is it coming?
+									+e.P.post-text Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod incididunt ut labore et dolore magna aliqua...
+									+e.A.button.link-button__.--color_accent-light(href="#")
+										+e.text Read more 
+										+e.SVG.icon.arrow-icon
+											use(xlink:href="#arrow-icon__arrow2")
+								+e.FOOTER.footer
+									+e.footer-boxes
+										+e.A.footer-box.comment-box__(href="#")
+											+e.SVG.icon
+												use(xlink:href="#news-row__comment")
+											+e.SPAN.number 486
+										+e.A.footer-box.views-box__(href="#")
+											+e.SVG.icon
+												use(xlink:href="#news-row__views")
+											+e.SPAN.number 1255
+									+e.date December 26,2017
+
+							+e.slide.slider__slide
+								+e.ARTICLE.post
+									+e.A.post-img-link(href="#")
+										+e.post-img(src="assets/img/news-row/post-img.jpg")
+									+e.H3.post-heading Climate change: is it coming?
+									+e.P.post-text Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod incididunt ut labore et dolore magna aliqua...
+									+e.A.button.link-button__.--color_accent-light(href="#")
+										+e.text Read more 
+										+e.SVG.icon.arrow-icon
+											use(xlink:href="#arrow-icon__arrow2")
+								+e.FOOTER.footer
+									+e.footer-boxes
+										+e.A.footer-box.comment-box__(href="#")
+											+e.SVG.icon
+												use(xlink:href="#news-row__comment")
+											+e.SPAN.number 486
+										+e.A.footer-box.views-box__(href="#")
+											+e.SVG.icon
+												use(xlink:href="#news-row__views")
+											+e.SPAN.number 1255
+									+e.date December 26,2017
+
+
+							
+
 
 
 

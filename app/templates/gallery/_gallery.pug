@@ -1,51 +1,52 @@
 mixin gallery(data)
 	+b.gallery.section
 		+e.container
-			+e.row
+
+			+e.row--centred
 				+e.heading.section-heading__.--centred Gallery
 					+e.dots 
 						+e.dot
 						+e.dot
 						+e.dot
-			+e.row
+
+			+e.row--centred
 				+e.text Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
 
-			+e.row
+			+e.row--centred
 				+e.UL.controls.inline-controls__
-					+e.item 
-						+e.link(href="#") All
 					+e.item
-						+e.link(href="#") Recent
+						+e.link--active(role="button" data-filter="all") All
+					+e.item
+						+e.link(role="button" data-filter=".gallery-grid--recent") Recent
 					+e.item 
-						+e.link(href="#") Collabs
+						+e.link(role="button" data-filter=".gallery-grid--collabs") Collabs
 					+e.item 
-						+e.link(href="#") Best
+						+e.link(role="button" data-filter=".gallery-grid--best") Best
 
-
-			+e.row.img-grid
-				+e.col
-					+e.A.img-links(href="#")
-						+e.img(src="assets/img/gallery/mountains.jpg")
-				+e.col
-					+e.A.img-links(href="#")
-						+e.img(src="assets/img/gallery/mountains.jpg")
-				+e.col
-					+e.A.img-links(href="#")
-						+e.img(src="assets/img/gallery/mountains.jpg")
-				+e.col
-					+e.A.img-links(href="#")
-						+e.img(src="assets/img/gallery/mountains.jpg")
-				+e.col
-					+e.A.img-links(href="#")
-						+e.img(src="assets/img/gallery/mountains.jpg")
-				+e.col
-					+e.A.img-links(href="#")
-						+e.img(src="assets/img/gallery/mountains.jpg")
-				+e.col
-					+e.A.img-links(href="#")
-						+e.img(src="assets/img/gallery/mountains.jpg")
-				+e.col
-					+e.A.img-links(href="#")
-						+e.img(src="assets/img/gallery/mountains.jpg")
+			+e.row.gallery-grid
+				+e.col.mix.gallery-grid--recent
+					+e.A.img-links(href="assets/img/gallery/mountains-thumbnail.jpg")
+						+e.img(src="assets/img/gallery/mountains-thumbnail.jpg")
+				+e.col.mix.gallery-grid--recent
+					+e.A.img-links(href="assets/img/gallery/energy.jpg")
+						+e.img(src="assets/img/gallery/energy-thumbnail.jpg")
+				+e.col.mix.gallery-grid--recent
+					+e.A.img-links(href="assets/img/gallery/plant.jpg")
+						+e.img(src="assets/img/gallery/plant-thumbnail.jpg")
+				+e.col.mix.gallery-grid--best
+					+e.A.img-links(href="assets/img/gallery/mountains-2.jpg")
+						+e.img(src="assets/img/gallery/mountains-2-thumbnail.jpg")
+				+e.col.mix.gallery-grid--best
+					+e.A.img-links(href="assets/img/gallery/plant-2.jpg")
+						+e.img(src="assets/img/gallery/plant-2-thumbnail.jpg")
+				+e.col.mix.gallery-grid--best
+					+e.A.img-links(href="assets/img/gallery/water-2.jpg")
+						+e.img(src="assets/img/gallery/water-2-thumbnail.jpg")
+				+e.col.mix.gallery-grid--collabs
+					+e.A.img-links(href="assets/img/gallery/desert.jpg")
+						+e.img(src="assets/img/gallery/desert-thumbnail.jpg")
+				+e.col.mix.gallery-grid--collabs
+					+e.A.img-links(href="assets/img/gallery/sea.jpg")
+						+e.img(src="assets/img/gallery/sea-thumbnail.jpg")
 
 				

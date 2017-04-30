@@ -1,10 +1,16 @@
 'use strict';
 
-import hero from './modules/hero.js';
-import asideImage from './modules/asideImage.js';
-import sliderRow from './modules/sliderRow.js';
-import tweens from './modules/tweens.js';
+import heroInit from './modules/hero.js';
+import asideImageInit from './modules/asideImage.js';
+import sliderRowInit from './modules/sliderRow.js';
+import treeTabsInit from './modules/treeTabs.js';
+import teamCardsInit from './modules/teamCards.js';
+import newsRowInit from './modules/newsRow.js';
+import galleryInit from './modules/gallery.js';
 
-hero();
-sliderRow();
-tweens();
+heroInit();
+sliderRowInit();
+treeTabsInit();
+newsRowInit();
+galleryInit();
+teamCardsInit();
