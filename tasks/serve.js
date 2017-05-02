@@ -13,7 +13,8 @@ module.exports = (options) => {
 
 	return () => {
 		browserSync.init({
-			server: options.serverDir
+			server: options.serverDir,
+			tunnel: 'greenyfree'
 		});
 		
 		browserSync.watch(options.watchDir).on('change', browserSync.reload);

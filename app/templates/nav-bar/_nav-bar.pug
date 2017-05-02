@@ -3,9 +3,11 @@ mixin navBar(data)
 	+b.NAV.nav-bar
 		+e.container
 			+e.row
+
 				+e.A.logo.logo__(href="#")
 					+e.SVG.svg
 						use(xlink:href="#logo__Greeny-logo")
+
 				+e.UL.menu.main-menu__
 					+e.item
 						+e.link--active(href="#Home") Home
@@ -17,6 +19,14 @@ mixin navBar(data)
 						+e.link(href="#Gallery") Gallery
 					+e.item
 						+e.link(href="#Pages") Pages
+					
+				+e.FORM(action="").search-bar
+					+e.INPUT.search-input(type = "text" placeholder="Type what you're looking for...")
+					+e.BUTTON.search-submit
+						+e.SVG.submit-icon.arrow-icon--accent1
+							use(xlink:href="#arrow-icon__arrow2")
+					+e.bottom-line 
+
 				+e.buttons
 					+e.BUTTON.menu-button.menu-button__
 						+e.SVG.icon

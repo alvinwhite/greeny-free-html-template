@@ -6,23 +6,23 @@ mixin numbersRow(data)
 				+e.col
 					+e.SVG.icon
 						use(xlink:href="#numbers-row__blocks")
-					+e.number 20+
+					+e.number(data-count-to="20" data-sign="true") 20+
 					+e.description Unique blocks 
 
 				+e.col
 					+e.SVG.icon
 						use(xlink:href="#numbers-row__blocks")
-					+e.number 1000+
+					+e.number(data-count-to="1000" data-sign="true") 1000+
 					+e.description Sales
 
 				+e.col
 					+e.SVG.icon
 						use(xlink:href="#numbers-row__blocks")
-					+e.number 1000+
+					+e.number(data-count-to="200") 1000+
 					+e.description Sales
 
 				+e.col
 					+e.SVG.icon
 						use(xlink:href="#numbers-row__blocks")
-					+e.number 1000+
+					+e.number(data-count-to="520") 1000+
 					+e.description Sales

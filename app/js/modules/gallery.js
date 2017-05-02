@@ -2,23 +2,62 @@ import PhotoSwipe from 'photoswipe';
 import PhotoSwipeUI_Default from 'photoswipe/dist/photoswipe-ui-default.js';
 import mixItUp from 'mixitup';
 
-
 var pswpElement = document.querySelector('.pswp');
-var imgLinks = document.querySelectorAll('.gallery__img-links');
-var imgContainer = document.querySelector('.gallery-grid');
+var imgContainer = document.querySelector('.gallery__img-grid');
+var imgLinks = imgContainer.querySelectorAll('.gallery__img-links');
+
+export default initGallery;
+
+function initGallery() {
+
+	initPhotoSwipe(imgContainer, imgLinks);
+
+	var mixer = mixItUp(imgContainer, {
+		classNames: {
+			block: '',
+			delineatorElement: '__',
+			delineatorModifier: '--',
+			elementFilter: 'inline-controls__link'
+		}
+	});
+
+}
+
+function initPhotoSwipe(container, links) {
+	appendAttributes(links);
+	container.addEventListener("click", handleLinkClick);
+}
+
+
+function handleLinkClick(e) {
+	e.preventDefault();
+
+		var target = e.target;
+
+		while(target != this) {
+			if(target.nodeType === 1 && target.hasAttribute('data-index')) {
+
+				var currentIndex = Number(target.getAttribute('data-index'));
+				openPhotoSwipe(currentIndex, imgLinks);
+
+			}
+			target = target.parentNode;
+		}
+		
+}
+
 
 function appendAttributes(links) {
 
-	links.forEach((el, i) => {
+	links.forEach((link, i) => {
 
-		let dimensions = getDimensions(el.getAttribute("href")).then((dimensions) => {
-			el.setAttribute('data-height', dimensions.h);
-			el.setAttribute('data-width', dimensions.w);
+		let dimensions = getDimensions(link.getAttribute("href")).then((dimensions) => {
+			link.setAttribute('data-height', dimensions.h);
+			link.setAttribute('data-width', dimensions.w);
 		});
 
-		el.setAttribute('data-index', i);
+		link.setAttribute('data-index', i);
 		
-		el.childNodes.forEach((child) => child.setAttribute('data-index', i));
 	});
 
 };
@@ -36,13 +75,13 @@ function getDimensions(url) {
 
 }
 
-function openPhotoSwipe(index) {
-	var elements = [];
+function openPhotoSwipe(index, links) {
+	var images = [];
 	var options = {
 		index: index 
 	};
 
-	imgLinks.forEach((el) => {
+	links.forEach((el) => {
 
 		let url = el.getAttribute("href");
 		let w = el.getAttribute("data-width");
@@ -50,12 +89,12 @@ function openPhotoSwipe(index) {
 		let thumbUrl;
 
 		el.childNodes.forEach((child) => {
-			if(child.hasAttribute("src")) {
+			if(child.nodeType === 1 && child.hasAttribute("src")) {
 				thumbUrl = child.getAttribute("src");
 			}
 		});
 
-		elements.push({
+		images.push({
 			src: url,
 			msrc: thumbUrl,
 			w: w,
@@ -64,35 +103,14 @@ function openPhotoSwipe(index) {
 
 	});
 
-	const pswp = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, elements, 
+	const pswp = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, images, 
 		options);
 	pswp.init();
 
 }
 
-function initGallery() {
 
-	appendAttributes(imgLinks);
 
-	imgContainer.addEventListener("click", function(e) {	
-		e.preventDefault();
 
-		if(e.target !== e.currentTargetgallery) {
-			openPhotoSwipe(Number(e.target.getAttribute("data-index")));
-		}		
 
-		e.stopPropagation();
-	});
 
-	var mixer = mixItUp(imgContainer, {
-		classNames: {
-			block: '',
-			delineatorElement: '__',
-			delineatorModifier: '--',
-			elementFilter: 'inline-controls__link'
-		}
-});
-
-}
-
-export default initGallery;

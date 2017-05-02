@@ -1,39 +1,68 @@
 
-var section = document.querySelector('.tree-tabs');
-var boxes = section.querySelectorAll('.tree-tabs__tab-box');
-var controls = section.querySelector('.tree-tabs__tab-controls').children;
 
-controls = true;
+const section = document.querySelector('.tree-tabs');
+
+const boxes = section.querySelectorAll('.tree-tabs__tab-box');
+const controlsWrapper = section.querySelector('.tree-tabs__tab-controls');
+const controls = Array.from(controlsWrapper.children);           
+
+const activeControlClass = 'tab-controls__control--active';
+const activeBoxClass = 'tab-box--active';
 
 function handleControlClick(e) {
-	
+
+	e.preventDefault();
+	var target = e.target;
+
+	while(target != this) {
+		if(target.hasAttribute('data-index')) {
+
+			var currentIndex = Number(target.getAttribute('data-index'));
+			appendActive(controls, currentIndex, activeControlClass);
+			appendActive(boxes, currentIndex, activeBoxClass);
+
+		}
+		target = target.parentNode;
+	}
+
 }
 
-function indexItems(...items) {
+function appendActive(items, index, activeClass) {
+	
+	if(!items) return false;
 
 	items.forEach((item) => {
 
-		if(!item) return false;
-		if(!item.forEach) {
+		let dataIndex = Number(item.getAttribute('data-index'));
+		let isActive = item.classList.contains(activeBoxClass);
 
-			try {
-				item = Array.from(item);
-			} catch(e) {
-				console.log(e.message);
-			}
-
+		if( dataIndex === index && !isActive ) {
+			item.classList.add(activeClass);
+		} else if( dataIndex !== index ) {
+			item.classList.remove(activeClass);
 		}
-
-		item.forEach((el, i) => {
-			el.setAttribute('data-index', i);
-		});
 
 	});
 
 }
 
+function indexItems(...items) {
 
+	items.forEach((item) => {
+		if(!item) return false;
 
-export default function () {
-	indexItems(boxes, controls);
+		item.forEach((el, i) => {
+			if(!el.hasAttribute('data-index')) {
+				el.setAttribute('data-index', i);
+			}
+		});
+
+	});
 }
+
+function initTreeTabs() {
+	indexItems(boxes, controls);
+	controlsWrapper.addEventListener('click', handleControlClick);
+}
+
+export default initTreeTabs;

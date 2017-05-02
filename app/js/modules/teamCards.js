@@ -1,7 +1,6 @@
 import {TweenLite, TimelineLite} from 'gsap';
 
-var tl = new TimelineLite({paused: true});
-var card = document.querySelectorAll('.team-card');
+var cards = document.querySelectorAll('.team-card');
 
 function getStripesTimeline(stripeNode) {
 	var tl = new TimelineLite({paused: true});
@@ -17,10 +16,9 @@ function getStripesTimeline(stripeNode) {
 	return tl;
 }
 
+function animateButtonHover() {
 
-export default function() {
-
-	card.forEach((el, i) => {
+	cards.forEach((el, i) => {
 		let button = el.querySelector('.team-card__button');
 		let stripeNodes = el.querySelectorAll('.team-card__stripes');
 		let leftTimeline = getStripesTimeline(stripeNodes[0].children);
@@ -38,3 +36,9 @@ export default function() {
 
 	});
 }
+
+function initTeamCards() {
+	animateButtonHover();
+}
+
+export default initTeamCards;

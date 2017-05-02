@@ -9,10 +9,11 @@
 
 .gallery__row
 	@extend .row, .no-gutters
-
-.gallery__row--centred
 	justify-content: center
 	text-align: center
+
+.gallery__img-grid
+	@extend .row, .no-gutters 
 
 .gallery__col 
 	@extend .col-12, .col-sm-6, .col-lg-4, .col-xl-3
@@ -38,17 +39,70 @@
 		top: 0
 		left: 0
 		display: block
-		width: 100%
+		width: 0%
 		height: 100%
 		content: ''
 		background-color: $accent-1-light
 		opacity: 0
-		transition: opacity 200ms
+		transition: opacity 350ms, width 400ms ease
 		z-index: 4
 	&:hover
 		&::after
-			opacity: 0.6
+			width: 100%
+			opacity: 0.8
+		.gallery__img-caption
+			opacity: 1
+			transition-delay: 300ms
+		.gallery__img-zoom-icon
+			opacity: 1
+			transition-delay: 300ms
 
 .gallery__img
 	width: 100%
 	height: 100%
+
+.gallery__img-caption
+	+setAbsPosition(50%,50%,left,top)
+	width: 100%
+	padding: 0 2rem
+	text-align: center
+	z-index: 5
+	opacity: 0
+	transition: opacity 300ms
+	
+
+.gallery__img-title
+	display: inline-block
+	position: relative
+	margin-bottom: 1rem
+	padding-bottom: 1rem
+	font-family: $heading-font
+	font-size: 2.4rem
+	font-weight: 800
+	color: $main-light
+	text-align: center
+	&::after
+		position: absolute
+		bottom: 0
+		left: 10%
+		display: block
+		content: ''
+		width: 80%
+		height: 1px
+		background-color: $main-light
+
+.gallery__img-description
+	text-align: center
+	font-size: 1.4rem
+	font-weight: 300 
+	color: $main-light 
+
+.gallery__img-zoom-icon
+	+setAbsPosition(10px, 10px, right, top)
+	width: 30px
+	height: 30px
+	z-index: 5
+	opacity: 0
+	transition: opacity 300ms
+
+	

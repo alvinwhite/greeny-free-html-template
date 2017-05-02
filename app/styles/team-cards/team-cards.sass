@@ -17,10 +17,8 @@
 .team-cards__col
 	@extend .col-12, .col-lg-6, .col-xl-4
 	text-align: center
-
-	+media-breakpoint-up(md)
-		&:nth-child(n+2)
-			margin-top: 4rem 
+	&:nth-child(n+2)
+		margin-top: 4rem 
 
 	+media-breakpoint-up(lg)
 		&:nth-child(2)
