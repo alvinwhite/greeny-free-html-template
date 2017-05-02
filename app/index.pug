@@ -11,6 +11,7 @@ include /templates/team-cards/_team-cards.pug
 include /templates/gallery/_gallery.pug
 include /templates/fw-boxes/_fw-boxes.pug
 include /templates/news-row/_news-row.pug
+include /templates/footer/_footer.pug
 
 block head
 	- var pageTitle = 'Greeny';
@@ -29,6 +30,7 @@ block content
 	+gallery()
 	+fwBoxes()
 	+newsRow()
+	+footer()
 	
 	include /templates/photo-swipe/_photo-swipe.html
 	- var scripts = ['index.js']
