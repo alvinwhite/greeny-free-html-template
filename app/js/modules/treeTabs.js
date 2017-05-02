@@ -1,13 +1,14 @@
 
+import {TweenLite, TimelineLite} from 'gsap';
 
-const section = document.querySelector('.tree-tabs');
+var section = document.querySelector('.tree-tabs');
 
-const boxes = section.querySelectorAll('.tree-tabs__tab-box');
-const controlsWrapper = section.querySelector('.tree-tabs__tab-controls');
-const controls = Array.from(controlsWrapper.children);           
+var boxes = section.querySelectorAll('.tree-tabs__tab-box');
+var controlsWrapper = section.querySelector('.tree-tabs__tab-controls');
+var controls = Array.from(controlsWrapper.children);
 
-const activeControlClass = 'tab-controls__control--active';
-const activeBoxClass = 'tab-box--active';
+var activeControlClass = 'tab-controls__control--active';
+var activeBoxClass = 'tab-box--active';
 
 function handleControlClick(e) {
 
@@ -28,7 +29,7 @@ function handleControlClick(e) {
 }
 
 function appendActive(items, index, activeClass) {
-	
+
 	if(!items) return false;
 
 	items.forEach((item) => {

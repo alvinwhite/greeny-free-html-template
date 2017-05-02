@@ -20,8 +20,8 @@ mixin navBar(data)
 					+e.item
 						+e.link(href="#Pages") Pages
 					
-				+e.FORM(action="").search-bar
-					+e.INPUT.search-input(type = "text" placeholder="Type what you're looking for...")
+				+e.FORM(action="").search-bar--hidden
+					+e.INPUT.search-input( type = "text" placeholder="Type what you're looking for...")
 					+e.BUTTON.search-submit
 						+e.SVG.submit-icon.arrow-icon--accent1
 							use(xlink:href="#arrow-icon__arrow2")
@@ -34,4 +34,3 @@ mixin navBar(data)
 					+b.BUTTON.search-button
 						+e.SVG.icon
 							use(xlink:href="#search-button__search")
-

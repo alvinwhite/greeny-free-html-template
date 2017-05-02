@@ -1,9 +1,12 @@
-.main-menu 
+.main-menu
 	list-style: none
 	font-family: $heading-font
 	font-weight: 800
 	font-size: 1.8rem
 	text-transform: uppercase
+
+.main-menu--hidden
+	display: none
 
 .main-menu__item
 	display: inline-block
@@ -16,22 +19,17 @@
 	color: $main-dark
 	&::after
 		position: absolute
-		display: block  
+		display: block
 		margin-top: 5px
 		width: 0
 		height: 3px
 		border-radius: 2px
 		content: ''
 		background-color: $accent-1
-		transition: width 200ms  
+		transition: width 200ms
 	&:hover
 		&::after
 			width: 100%
 	&--active
 		&::after
 			width: 100%
-
-			
-
-
-
