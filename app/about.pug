@@ -1,0 +1,20 @@
+extends /templates/layout/_layout.pug
+
+include /templates/nav-bar/_nav-bar.pug
+include /templates/search-screen/_search-screen.pug
+include /templates/menu-screen/_menu-screen.pug
+include /templates/footer/_footer.pug
+
+block head
+	- var pageTitle = 'Greeny';
+	- var stylesheets = ['about.css']
+
+block content
+	include /assets/symbol.svg
+	+navBar()
+	+searchScreen()
+	+menuScreen()
+	+footer()
+
+	include /templates/photo-swipe/_photo-swipe.html   
+	- var scripts = ['about.js'];

@@ -1,3 +1,4 @@
+import PubSub from 'pubsub-js';
 import PhotoSwipe from 'photoswipe';
 import PhotoSwipeUI_Default from 'photoswipe/dist/photoswipe-ui-default.js';
 import mixItUp from 'mixitup';
@@ -6,7 +7,7 @@ var pswpElement = document.querySelector('.pswp');
 var imgContainer = document.querySelector('.gallery__img-grid');
 var imgLinks = imgContainer.querySelectorAll('.gallery__img-links');
 
-export default initGallery;
+PubSub.subscribe("init", initGallery);
 
 function initGallery() {
 
@@ -109,8 +110,4 @@ function openPhotoSwipe(index, links) {
 
 }
 
-
-
-
-
-
+export default initGallery;

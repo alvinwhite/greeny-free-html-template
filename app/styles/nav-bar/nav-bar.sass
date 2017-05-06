@@ -7,14 +7,19 @@
 	height: 7rem
 	display: flex
 	align-items: center
+	justify-content: center
 	background-color: $main-light
 
 .nav-bar__container
-	@extend .container
+	@extend .container-fluid
+	width: 100%
+	max-width: 1170px
+	margin: 0 2rem
 
 .nav-bar__row
 	@extend .row
 	height: 100%
+	justify-content: space-between
 
 .nav-bar__logo
 	align-self: center
@@ -22,7 +27,7 @@
 .nav-bar__menu
 	margin: 0 0 0 auto
 	display: none
-	padding: 0 6.0rem 0 0
+	padding: 0 6rem 0 0
 	align-self: center
 	opacity: 1
 	+media-breakpoint-up(lg)
@@ -34,47 +39,6 @@
 	display: flex
 	+media-breakpoint-up(lg)
 		margin: 0
-
-.nav-bar__search-bar
-	display: none
-	position: relative
-	flex-grow: 2
-	margin: 0 4rem
-	align-items: center
-
-.nav-bar__search-bar--visible
-	display: flex
-
-.nav-bar__search-input
-	width: 100%
-	border: none
-	outline: none
-	font-size: 1.8rem
-	font-weight: 600
-	color: $accent-1-dark
-	&::placeholder
-		color: $accent-1-dark
-		opacity: 0.4
-		font-weight: 300
-
-.nav-bar__search-submit
-	vertical-align: middle
-	padding: 0
-	background: transparent
-	border: none
-	cursor: pointer
-
-.nav-bar__search-icon
-
-.nav-bar__bottom-line
-	position: absolute
-	bottom: 0
-	left: 0
-	display: block
-	width: 0
-	height: 2px
-	border-radius: 1px
-	background-color: $accent-1-light
 
 .nav-bar__menu-button
 	display: block

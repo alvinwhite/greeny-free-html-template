@@ -2,14 +2,14 @@ const cfg = require('./awesome.config.js');
 const isDev = !process.env.NODE_ENV || process.env.NODE_ENV == 'development';
 
 // Add custom plugins if you need them
-const plugins = {};
+const plugins = {
+	'autoprefixer': {},
+};
 
-if(isDev) {
-	plugins['autoprefixer'] = {}
-} else {
-	plugins['cssnano'] = {}
+if(!isDev) {
+	plugins['cssnano'] = {};
 }
 
 module.exports = {
   plugins: plugins
-}
+};

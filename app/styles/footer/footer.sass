@@ -1,8 +1,141 @@
+.footer
+	color: $main-light
+	background-color: $accent-1
+
 .footer__container
   @extend .container
+
 
 .footer__row
   @extend .row
 
+.footer__row--centred
+	justify-content: center
+	align-items: center
+
 .footer__col
-  @extend .col-xl-3
+	@extend .col-sm-6, .col-lg-3
+	margin: 2rem 2rem 
+	border-bottom: 2px solid $accent-1-light
+
+	+media-breakpoint-up(sm)
+		margin: 2rem 0
+		border-left: 2px solid $accent-1-light
+		border-bottom: none 
+
+	+media-breakpoint-up(lg)
+		&:first-of-type 
+			border-left: none 
+
+.footer__logo
+	margin-bottom: 1rem
+
+.footer__info
+	margin-bottom: 2rem
+	padding: 0
+
+.footer__address
+	margin-bottom: 1.5rem
+
+.footer__socials
+	justify-content: center
+
+.footer__useful-links
+	padding: 0
+	font-size: 1.6rem
+	display: flex
+	flex-flow: row wrap 
+
+.footer__link-item
+	margin-bottom: 1.5rem
+	margin-top: 0.5rem
+	flex-basis: 50%
+		
+.footer__link
+	position: relative
+	opacity: 0.8
+	padding: 0.8rem 0
+
+	&::before
+		+setAbsPosition(0, 0, left, top)
+		display: block
+		width: 15px
+		height: 2px 
+		content: ''
+		background-color: $accent-1-light
+		opacity: 0
+		transition: width 200ms
+
+	&::after 
+		+setAbsPosition(0, 0, left, bottom)
+		display: block
+		width: 15px
+		height: 2px 
+		content: ''
+		background-color: $accent-1-light
+		opacity: 0.8
+		transition: width 200ms
+
+	&:hover
+		opacity: 1
+		&::after 
+			width: 100%
+			opacity: 1
+
+.footer__heading
+	margin-bottom: 1.5rem
+	font-family: $heading-font 
+	font-size: 2.4rem
+
+.footer__newsletter-descr
+	margin-bottom: 1.5rem
+
+.footer__newsletter-bar
+	margin-bottom: 1.5rem 
+
+.newsletter-bar
+	position: relative
+	display: flex
+	flex-flow: row nowrap
+	padding-bottom: 0.5rem
+
+.newsletter-bar__input
+	border: none
+	outline: none
+	font-size: 1.6rem
+	font-weight: 600
+	color: $main-light
+	background: transparent 
+	width: 90%
+	&::placeholder
+		color: $main-light 
+		opacity: 0.7
+		font-weight: 300
+		font-style: italic 
+
+.newsletter-bar__submit
+	vertical-align: middle
+	padding: 0
+	background: transparent
+	border: none
+	cursor: pointer
+
+.newsletter-bar__submit-icon
+	width: 24px
+	height: 24px
+
+.newsletter-bar__bottom-line
+	+setAbsPosition(0px, 0px, left, bottom)
+	display: block
+	width: 100%
+	height: 2px
+	border-radius: 1px
+	background-color: $accent-1-light
+
+.footer__copyright-row
+	background-color: $accent-1-dark
+
+.footer__copyright
+	padding: 2rem 0
+
+

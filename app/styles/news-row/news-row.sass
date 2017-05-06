@@ -1,7 +1,8 @@
 .news-row
 
 .news-row__container
-	@extend .container
+	@extend .container-fluid
+	max-width: 1170px
 
 .news-row__row
 	@extend .row
@@ -65,23 +66,23 @@
 	align-self: flex-end
 
 .news-row__footer
-	margin-top: 0.8rem
+	margin: 0 2rem 0
 	display: flex
-	flex-flow: row nowrap
-	justify-content: space-between
+	flex-flow: row wrap
+	justify-content: space-between 
 	align-items: center
 
 .news-row__footer-boxes
 	display: flex
-	flex-flow: row nowrap 
+	flex-flow: row nowrap
 
 .news-row__footer-box
-	margin-left: 2rem
+	margin-top: 0.8rem
 	&:nth-child(n+2)
 		margin-left: 1rem
 
 .news-row__date
-	margin-right: 2rem
+	margin-top: 0.5rem 
 	color: $accent-1-light
 	font-size: 1.4rem
 	font-style: italic 

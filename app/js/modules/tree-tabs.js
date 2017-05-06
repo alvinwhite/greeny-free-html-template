@@ -1,14 +1,21 @@
-
 import {TweenLite, TimelineLite} from 'gsap';
+import PubSub from 'pubsub-js';
 
-var section = document.querySelector('.tree-tabs');
+const section = document.querySelector('.tree-tabs');
 
-var boxes = section.querySelectorAll('.tree-tabs__tab-box');
-var controlsWrapper = section.querySelector('.tree-tabs__tab-controls');
-var controls = Array.from(controlsWrapper.children);
+const boxes = section.querySelectorAll('.tree-tabs__tab-box');
+const controlsWrapper = section.querySelector('.tree-tabs__tab-controls');
+const controls = Array.from(controlsWrapper.children);
 
-var activeControlClass = 'tab-controls__control--active';
-var activeBoxClass = 'tab-box--active';
+const activeControlClass = 'tab-controls__control--active';
+const activeBoxClass = 'tab-box--active';
+
+PubSub.subscribe("init", initTreeTabs);
+
+function initTreeTabs() {
+	indexItems(boxes, controls);
+	controlsWrapper.addEventListener('click', handleControlClick);
+}
 
 function handleControlClick(e) {
 
@@ -19,8 +26,8 @@ function handleControlClick(e) {
 		if(target.hasAttribute('data-index')) {
 
 			var currentIndex = Number(target.getAttribute('data-index'));
-			appendActive(controls, currentIndex, activeControlClass);
-			appendActive(boxes, currentIndex, activeBoxClass);
+			appendActiveClass(controls, currentIndex, activeControlClass);
+			appendActiveClass(boxes, currentIndex, activeBoxClass);
 
 		}
 		target = target.parentNode;
@@ -28,7 +35,7 @@ function handleControlClick(e) {
 
 }
 
-function appendActive(items, index, activeClass) {
+function appendActiveClass(items, index, activeClass) {
 
 	if(!items) return false;
 
@@ -59,11 +66,6 @@ function indexItems(...items) {
 		});
 
 	});
-}
-
-function initTreeTabs() {
-	indexItems(boxes, controls);
-	controlsWrapper.addEventListener('click', handleControlClick);
 }
 
 export default initTreeTabs;

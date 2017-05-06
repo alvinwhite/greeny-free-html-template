@@ -1,5 +1,6 @@
 'use strict';
 
+import PubSub from 'pubsub-js';
 import swiper from 'swiper';
 
 const swiperOptions = {
@@ -11,7 +12,7 @@ const swiperOptions = {
 		498: {
 			slidesPerView: 1,
 		},
-		996: {
+		768: {
 			slidesPerView: 2
 		}
 	},
@@ -37,6 +38,8 @@ const swiperOptions = {
 	paginationHiddenClass: 'slider__pagination--hidden',
 	paginationCurrentClass: 'slider__pagination--current'
 };
+
+PubSub.subscribe("init", initNewsRow);
 
 function initNewsRow() {
 	const swiperInit = new Swiper('.news-row__slider', swiperOptions);

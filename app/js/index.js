@@ -1,20 +1,16 @@
 'use strict';
 
-import navBarInit from './modules/navBar.js';
+import PubSub from 'pubsub-js';
+import navBarInit from './modules/nav-bar.js';
 import heroInit from './modules/hero.js';
-import asideImageInit from './modules/asideImage.js';
-import sliderRowInit from './modules/sliderRow.js';
-import treeTabsInit from './modules/treeTabs.js';
-import numbersRowInit from './modules/numbersRow.js';
-import teamCardsInit from './modules/teamCards.js';
-import newsRowInit from './modules/newsRow.js';
+import asideImageInit from './modules/aside-image.js';
+import sliderRowInit from './modules/slider-row.js';
+import treeTabsInit from './modules/tree-tabs.js';
+import numbersRowInit from './modules/numbers-row.js';
+import teamCardsInit from './modules/team-cards.js';
+import newsRowInit from './modules/news-row.js';
 import galleryInit from './modules/gallery.js';
 
-navBarInit();
-heroInit();
-sliderRowInit();
-treeTabsInit();
-numbersRowInit();
-newsRowInit();
-galleryInit();
-teamCardsInit();
+var INIT = "init";
+
+PubSub.publish(INIT);

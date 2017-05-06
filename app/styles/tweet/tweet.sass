@@ -1,0 +1,25 @@
+.tweet
+	position: relative
+	display: block
+	padding-left: 3rem
+	padding-bottom: 2rem
+	&:hover
+		.tweet__icon
+			opacity: 1
+
+.tweet__icon
+	+setAbsPosition(0, 0, left, top)
+	width: 20px
+	height: 20px
+	fill: $main-light 
+	opacity: 0.6
+	transition: opacity 250ms 
+
+.tweet__text
+	display: block
+	color: rgba($main-light, 0.8)
+	margin-bottom: 0.5rem
+
+.tweet__date
+	display: block
+

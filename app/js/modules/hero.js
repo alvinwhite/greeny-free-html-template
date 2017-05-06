@@ -1,9 +1,10 @@
 'use strict';
 
+import PubSub from 'pubsub-js';
 import swiper from 'swiper';
 
-const imageCollection = document.getElementsByClassName('slider__img');
-const swiperOptions = {
+var imageCollection = document.getElementsByClassName('slider__img');
+var swiperOptions = {
 	//Pagination
 	pagination: '.slider__pagination',
 	paginationClickable: true,
@@ -25,31 +26,13 @@ const swiperOptions = {
 	sliderPrevClass: 'slider__slide--prev',
 	sliderDuplicatedPrevClass: 'slider__slide--duplicate-prev',
 	wrapperClass: 'slider__wrapper',
-	bulletClass: 'slider__bullet',
+	bulletClass: 'slider__bullet--hero',
 	bulletActiveClass: 'slider__bullet--active',
 	paginationHiddenClass: 'slider__pagination--hidden',
 	paginationCurrentClass: 'slider__pagination--current'
 };
 
-
-/**
- * Adjust height of slider images
- * use as a polyfill for browsers not supporting calc and vh
- * @param  {array} images HTMLCollection or NodeList
- * @return {object}       Returns null if no arguments are passed
- */
-function adjustImages(images) {
-	const h = window.innerHeight - 70;
-	const w = window.innerWidth;
-	
-	if(!images) return null;
-
-		for (let i = 0; i < images.length; i++) {
-			images[i].style.height = h + 'px';
-		}
-
-};
-
+PubSub.subscribe("init", initHero);
 
 function initHero() {
 	const swiperInit = new Swiper('.hero__slider', swiperOptions);
@@ -62,7 +45,26 @@ function initHero() {
 	});
 	*/
 
-
 }
+
+/**
+ * Adjust height of slider images
+ * use as a polyfill for browsers not supporting calc and vh
+ * @param  {array} images HTMLCollection or NodeList
+ * @return {object}       Returns null if images is falsy 
+ */
+function adjustImages(images) {
+	const h = window.innerHeight - 70;
+	const w = window.innerWidth;
+	
+	if(!images) return null;
+	if(!images.forEach) images = Array.from(images);
+
+	images.forEach((img) => {
+		img.style.height = h + 'px';
+	});
+
+};
+
 
 export default initHero;

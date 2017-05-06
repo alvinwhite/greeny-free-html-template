@@ -1,0 +1,48 @@
+.search-bar
+	position: relative
+	flex-grow: 2
+	margin: 0 4rem
+	align-items: center
+
+.search-bar--hidden
+	display: none
+
+.search-bar--visible
+	display: flex
+
+.search-bar__input
+	width: 100%
+	border: none
+	outline: none
+	font-size: 1.8rem
+	font-weight: 600
+	color: $accent-1-dark
+	background: transparent 
+	&::placeholder
+		color: $accent-1-dark
+		opacity: 0.4
+		font-weight: 300
+		font-style: italic 
+
+.search-bar__input--search-screen
+	font-size: 2.4rem
+	padding-bottom: 1rem
+
+.search-bar__submit
+	vertical-align: middle
+	padding: 0
+	background: transparent
+	border: none
+	cursor: pointer
+
+.search-bar__submit-icon
+
+.search-bar__bottom-line
+	position: absolute
+	bottom: 0
+	left: 0
+	display: block
+	width: 100%
+	height: 2px
+	border-radius: 1px
+	background-color: $accent-1-light

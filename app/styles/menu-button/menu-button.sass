@@ -3,6 +3,14 @@
 	border: none
 	cursor: pointer
 
+.menu-button--active
+	.menu-button__icon
+		fill: $accent-1 
+
 .menu-button__icon
 	width: 36px
 	height: 36px
+	transition: fill 200ms
+	&:hover
+		fill: $accent-1 
+

@@ -1,19 +1,77 @@
 mixin footer(data)
-  +b.FOOTER.footer.section
-    +e.container
-      +e.row
-        +e.col
-          +e.logo
-          +e.info
-          +e.socials
-        +e.col
-          +e.UL.latest-tweets
-            +e.tweet
-            +e.tweet
-        +e.col
-          +e.nav-bar
-        +e.col
-          +e.subscribe-box
-    +e.contianer
-      +e.row
-        +e.copyright
+	+b.FOOTER.footer
+		+e.container
+			+e.row
+				+e.col
+					+e.logo.logo__(href="#")
+						+e.SVG.svg
+							use(xlink:href="#logo__Greeny-logo--footer")
+					+e.UL.info
+						+e.e-mail E-mail: helloworld@gmail.gum
+						+e.address Address: Hello World St. 8/13
+						+e.description  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci ipsam dolor explicabo laboriosam iste fugiat.
+					+e.UL.socials.socials-row__
+						+e.A.item(href="#")
+							+e.background
+							+e.SVG.icon
+								use(xlink:href="#socials-row__github")
+						+e.A.item(href="#")
+							+e.background
+							+e.SVG.icon
+								use(xlink:href="#socials-row__github")
+						+e.A.item(href="#")
+							+e.background
+							+e.SVG.icon
+								use(xlink:href="#socials-row__github")
+						+e.A.item(href="#")
+							+e.background
+							+e.SVG.icon
+								use(xlink:href="#socials-row__github")
+
+				+e.col
+					+e.H3.heading Useful links
+					+e.UL.useful-links
+						+e.link-item
+							+e.link(href="#") About us
+						+e.link-item
+							+e.link(href="#") Our projects 
+						+e.link-item
+							+e.link(href="#") Contact us
+						+e.link-item
+							+e.link(href="#") Gallery
+						+e.link-item
+							+e.link(href="#") Blog
+						+e.link-item
+							+e.link(href="#") Our team
+						+e.link-item
+							+e.link(href="#") Lorem set
+						+e.link-item
+							+e.link(href="#") Ipsum dolor
+				+e.col
+					+e.H3.heading Twitter
+					+e.tweets
+						+b.A.tweet
+							+e.SVG.icon
+								use(xlink:href="#tweet__twitter-logo")
+							+e.text Hello world, this is an example tweet, not lorem ipsum, cool, am I right?
+							+e.date 42 years ago
+						+b.A.tweet
+							+e.SVG.icon
+								use(xlink:href="#tweet__twitter-logo")
+							+e.text Hello world, this is an example tweet, not lorem ipsum, cool, am I right?
+							+e.date 42 years ago
+				+e.col
+					+e.H3.heading Newsletter
+					+e.newsletter-descr  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat expedita minus, officiis dicta ullam esse? 
+					+e.newsletter-bar.FORM.newsletter-bar__
+						+e.INPUT.input( type = "text" placeholder="Type your e-mail..." )
+						+e.BUTTON.submit(role="button" type="submit")
+							+e.SVG.submit-icon.arrow-icon
+								use(xlink:href="#arrow-icon__arrow2")
+							+e.bottom-line 
+
+
+		+e.copyright-row
+			+e.container
+				+e.row--centred
+					+e.copyright Copyright © Alvvi 2017

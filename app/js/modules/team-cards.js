@@ -1,19 +1,12 @@
 import {TweenLite, TimelineLite} from 'gsap';
+import PubSub from 'pubsub-js';
 
 var cards = document.querySelectorAll('.team-card');
 
-function getStripesTimeline(stripeNode) {
-	var tl = new TimelineLite({paused: true});
+PubSub.subscribe("init", initTeamCards);
 
-	tl.add( TweenLite.to([stripeNode[0], stripeNode[2]], 0.2, {
-		width: '35px'
-	}));
-
-	tl.add( TweenLite.to(stripeNode[1], 0.2, {
-		width: '25px'
-	}));
-
-	return tl;
+function initTeamCards() {
+	animateButtonHover();
 }
 
 function animateButtonHover() {
@@ -37,8 +30,19 @@ function animateButtonHover() {
 	});
 }
 
-function initTeamCards() {
-	animateButtonHover();
+
+function getStripesTimeline(stripeNode) {
+	var tl = new TimelineLite({paused: true});
+
+	tl.add( TweenLite.to([stripeNode[0], stripeNode[2]], 0.2, {
+		width: '35px'
+	}));
+
+	tl.add( TweenLite.to(stripeNode[1], 0.2, {
+		width: '25px'
+	}));
+
+	return tl;
 }
 
 export default initTeamCards;

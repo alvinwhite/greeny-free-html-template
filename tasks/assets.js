@@ -18,7 +18,7 @@ module.exports = (options) => {
 	if(!options.dest) throw new Error('Error in task ' + options.taskName + ': dest property must be specifed');
 
 	return () => {
-		return gulp.src(options.src, {since: gulp.lastRun(options.taskName)})
+		return gulp.src(options.src)
 			.pipe(gulp.dest(options.dest));
 	};
 

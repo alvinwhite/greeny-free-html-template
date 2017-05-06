@@ -1,9 +1,9 @@
 mixin navBar(data)
 	+spacefiller('100%','70px')
 	+b.NAV.nav-bar
+
 		+e.container
 			+e.row
-
 				+e.A.logo.logo__(href="#")
 					+e.SVG.svg
 						use(xlink:href="#logo__Greeny-logo")
@@ -20,9 +20,9 @@ mixin navBar(data)
 					+e.item
 						+e.link(href="#Pages") Pages
 					
-				+e.FORM(action="").search-bar--hidden
-					+e.INPUT.search-input( type = "text" placeholder="Type what you're looking for...")
-					+e.BUTTON.search-submit
+				+e.FORM(action="").search-bar.search-bar__.--hidden
+					+e.INPUT.input( type = "text" placeholder="Type what you're looking for..." )
+					+e.BUTTON.submit
 						+e.SVG.submit-icon.arrow-icon--accent1
 							use(xlink:href="#arrow-icon__arrow2")
 					+e.bottom-line 
@@ -31,6 +31,6 @@ mixin navBar(data)
 					+e.BUTTON.menu-button.menu-button__
 						+e.SVG.icon
 							use(xlink:href="#menu-button__menu")
-					+b.BUTTON.search-button
+					+e.BUTTON.search-button.search-button__
 						+e.SVG.icon
 							use(xlink:href="#search-button__search")

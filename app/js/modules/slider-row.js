@@ -1,8 +1,9 @@
 'use strict';
 
 import swiper from 'swiper';
+import PubSub from 'pubsub-js';
 
-const swiperOptions = {
+var swiperOptions = {
 	//Slides grid
 	slidesPerView: 3,
 	spaceBetween: 10,
@@ -11,7 +12,7 @@ const swiperOptions = {
 		498: {
 			slidesPerView: 1,
 		},
-		996: {
+		768: {
 			slidesPerView: 2
 		}
 	},
@@ -37,6 +38,8 @@ const swiperOptions = {
 	paginationHiddenClass: 'slider__pagination--hidden',
 	paginationCurrentClass: 'slider__pagination--current'
 };
+
+PubSub.subscribe("init", initSliderRow);
 
 function initSliderRow() {
 	const swiperInit = new Swiper('.slider-row__slider', swiperOptions);

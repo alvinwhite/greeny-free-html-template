@@ -1,6 +1,8 @@
 extends /templates/layout/_layout.pug
 
 include /templates/nav-bar/_nav-bar.pug
+include /templates/search-screen/_search-screen.pug
+include /templates/menu-screen/_menu-screen.pug
 include /templates/hero/_hero.pug
 include /templates/outline-boxes/_outline-boxes.pug
 include /templates/aside-image/_aside-image.pug
@@ -20,6 +22,8 @@ block head
 block content
 	include /assets/symbol.svg
 	+navBar()
+	+searchScreen()
+	+menuScreen()
 	+hero()
 	+outlineBoxes()
 	+asideImage()
@@ -33,4 +37,4 @@ block content
 	+footer()
 	
 	include /templates/photo-swipe/_photo-swipe.html
-	- var scripts = ['index.js']
+	- var scripts = ['index.js'];

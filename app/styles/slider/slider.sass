@@ -3,7 +3,7 @@
 // ===========
 // BE CAUTIOS!
 // ===========
-// Only classes that are required for current swiper instances are 
+// Only classes that are required for used swiper instances are 
 // extended, if you are going to use custom swiper instance or 
 // make changes to the current ones, chances are you will need 
 // some others classes. Either extend them here, or use native 
@@ -40,21 +40,39 @@
 // Custom classes
 
 .slider__pagination
-	+setAbsPosition(20px, 50%)
+	+setAbsPosition(50%, 98%)
+	display: flex 
+		
 	+media-breakpoint-up(xl)
-		+setAbsPosition(20px, 35%)
-	@media (max-height: 768px)
-		+setAbsPosition(20px, 50%)
+		+setAbsPosition(45px, 35%)
+		display: block 
 
-.slider__bullet
+	@media (max-height: 768px)
+		+setAbsPosition(50%, 98%)
+		display: flex 
+			
+
+.slider__bullet--hero
 	display: block
 	margin-bottom: 8px
-	width: 12px
-	height: 12px
+	margin-left: 1.2rem 
+	width: 16px
+	height: 16px
 	opacity: 0.7
 	border-radius: 50%
 	background-color: $main-light
 	cursor: pointer
+
+	+media-breakpoint-up(xl)
+		width: 12px
+		height: 12px
+		margin-left: 0 
+
+	@media (max-height: 768px)
+		margin-left: 1.2rem 
+		width: 16px
+		height: 16px
+
 
 .slider__bullet--active
 	opacity: 1
@@ -89,19 +107,19 @@
 	font-weight: 800
 	white-space: nowrap
 
-.slider__heading--color_dark
-	
-
 .slider__heading--hero
 	+media-breakpoint-up(xs)
 		font-size: 32px
+		font-size: 10vw
 	+media-breakpoint-up(sm)
 		font-size: 52px
+		font-size: 9vw 
 	+media-breakpoint-up(md)
 		font-size: 62px
+		font-size: 7vw 
 	+media-breakpoint-up(lg)
 		font-size: 68px
-		font-size: 5.4vmax
+		font-size: 5.3vmax
 
 .slider__subheading
 	@extend .slider__heading 
