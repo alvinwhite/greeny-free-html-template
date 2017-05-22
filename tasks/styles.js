@@ -1,3 +1,4 @@
+
 'use strict';
 
 /**
@@ -7,19 +8,20 @@
 const gulp = require('gulp');
 const $ = require('gulp-load-plugins')();
 const isDev = !process.env.NODE_ENV || process.env.NODE_ENV == 'development';
-const path = require('path');
 const cfg = require('../awesome.config.js');
 
-function getPreprocessor() {
+module.exports = (options) => {
 
-		if(cfg.preprocessor === 'sass') {
+	function getPreprocessor() {
+
+		if(options.preprocessor === 'sass') {
 			return $.sass({
 				outputStyle: 'expanded',
 				includePaths: ['./node_modules/']
 			});
 		}
 
-		if(cfg.preprocessor === 'stylus') {
+		if(options.preprocessor === 'stylus') {
 			return $.stylus();
 		}
 
@@ -27,12 +29,8 @@ function getPreprocessor() {
 
 	}
 
-module.exports = (options) => {
-
 	if(!options.src) throw new Error('Error in task ' + options.taskName + ': src property must be specifed');
 	if(!options.dest) throw new Error('Error in task ' + options.taskName + ': dest property must be specifed');
-
-	let preprocessor = getPreprocessor();
 
 	return () => {
 
@@ -45,10 +43,11 @@ module.exports = (options) => {
 				})
 			}))
 			.pipe($.if(isDev, $.sourcemaps.init()))
-			.pipe(preprocessor)
+			.pipe(getPreprocessor())
 			.pipe($.postcss())
 			.pipe($.if(isDev, $.sourcemaps.write()))
 			.pipe(gulp.dest(options.dest));
 	};
 
 };
+

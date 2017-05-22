@@ -1,3 +1,5 @@
+'use strict';
+
 import { TweenLite, TimelineLite } from 'gsap';
 import PubSub from 'pubsub-js';
 
@@ -7,50 +9,74 @@ import toggleSbVisibility from './search-bar.js';
 import searchScreenTl from './search-screen.js';
 import menuScreenTl from './menu-screen.js';
 
-var body = document.querySelector('.page');
-var navBar = document.querySelector('.nav-bar');
+// for the sake of coolness, of course
+// also because you cannot make this kind of
+// assignment with an object litteral
+class NavBarDOM {
 
-var menuBtn = navBar.querySelector('.nav-bar__menu-button');
-var searchBtn = navBar.querySelector('.nav-bar__search-button');
-var searchBar = navBar.querySelector('.nav-bar__search-bar');
-var menu = navBar.querySelector('.nav-bar__menu');
-
-var searchInput = searchBar.querySelector('.search-bar__input');
-var searchBarBottomLine = searchBar.querySelector('.search-bar__bottom-line');
-var submitSearchBtn = searchBar.querySelector('.search-bar__submit');
-var submitSearchIcon = submitSearchBtn.firstChild;
-
-var searchBarTl = getSearchBarTl(
-	searchBarBottomLine,
-	searchInput,
-	submitSearchBtn,
-	searchBar);
-var hideMenuTween = getHideMenuTween(menu);
-var desktopSearchTl = new TimelineLite({ paused: true, reversed: true });
-
-desktopSearchTl.add(hideMenuTween)
-	.call(toggleMenuVisibility, [menu])
-	.add(searchBarTl.play());
-
-PubSub.subscribe("init", initNavBar);
-
-function initNavBar() {
-
-	menuBtn.addEventListener('click', handleMenuBtnClick);
-	searchBtn.addEventListener('click', handleSearchBtnClick);
-	window.addEventListener('resize', handleWindowResize);
+	constructor() {
+		this.root = document.querySelector('.nav-bar');
+		this.menuBtn = this.root.querySelector('.nav-bar__menu-button');
+		this.searchBtn = this.root.querySelector('.nav-bar__search-button');
+		this.searchBar = this.root.querySelector('.nav-bar__search-bar');
+		this.menu = this.root.querySelector('.nav-bar__menu');
+	}
 
 }
 
-function handleWindowResize() {
+const DOM = new NavBarDOM();
+const EVENTS = {
+	pageInit: 'init',
+	windowResized: 'windowResized',
+	searchSubmited: 'searchSubmited'
+};
 
-	var isMobile = window.innerWidth <= 991;
+
+// Get timelines and tweens for animation
+var searchBarTl = getSearchBarTl(DOM.searchBar);
+var hideMenuTween = getFadeOutTween(DOM.menu);
+var desktopSearchTl = new TimelineLite({ paused: true, reversed: true })
+	.add(hideMenuTween.play())
+	.call(() => {
+		DOM.menu.classList.toggle('main-menu--hidden');
+	})
+	.add(searchBarTl.play());
+
+// Module states
+var searchSubmited = false;
+
+//Sub to the page events 
+PubSub.subscribe(EVENTS.pageInit, initNavBar);
+PubSub.subscribe(EVENTS.windowResized, handleWindowResize);
+
+function initNavBar() {
+
+	DOM.searchBar.addEventListener('submit', function(e) {
+		e.preventDefault();
+
+		PubSub.publish(EVENTS.searchSubmited, {
+			form: this,
+			desktop: true
+		});
+
+		searchSubmited = true;
+
+	});
+
+	DOM.menuBtn.addEventListener('click', handleMenuBtnClick);
+	DOM.searchBtn.addEventListener('click', handleSearchBtnClick);
+
+}
+
+function handleWindowResize(eName, data) {
+
+	var isMobile = data.isMobile;
 	var desktopPlayed = desktopSearchTl.progress() > 0;
 	var screenPlayed = searchScreenTl.progress() > 0;
 
 	if (isMobile && desktopPlayed) {
 
-		toggleSbVisibility(searchBar);
+		toggleSbVisibility(DOM.searchBar);
 		toggleTlDirection(desktopSearchTl);
 		toggleTlDirection(searchScreenTl);
 
@@ -60,14 +86,17 @@ function handleWindowResize() {
 		toggleTlDirection(desktopSearchTl);
 
 	}
+
 }
 
 function handleSearchBtnClick() {
 
 	var isMobile = window.innerWidth <= 991;
-	var isActive = this.classList.contains('search-button--active');
-	var screenPlayed = searchScreenTl.progress() > 0;
-	var desktopPlayed = desktopSearchTl.progress() > 0;
+
+	if(searchSubmited) {
+		PubSub.publish('closeResultsScreen');
+		searchSubmited = false;
+	}
 
 	this.classList.toggle('search-button--active');
 
@@ -84,15 +113,11 @@ function handleMenuBtnClick() {
 	toggleTlDirection(menuScreenTl);
 }
 
-
-function getHideMenuTween(menu) {
-	return TweenLite.to(menu, 0.35, {
-		opacity: 0,
+function getFadeOutTween(el) {
+	return TweenLite.to(el, 0.35, {
+		autoAlpha: 0,
+		paused: true
 	});
-}
-
-function toggleMenuVisibility(menu) {
-	menu.classList.toggle('main-menu--hidden');
 }
 
 function toggleTlDirection(tl) {

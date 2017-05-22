@@ -1,60 +1,80 @@
 import PubSub from 'pubsub-js';
 import {TweenLite, TimelineLite} from 'gsap';
+
+import {moduleEvents as NAV_EVENTS} from './nav-bar.js';
 import getSearchBarTl from './search-bar.js';
 
+class SearchScreenDOM {
+
+	constructor() {
+		this.root = document.querySelector('.search-screen');
+		this.resultsItems = this.root.querySelectorAll('.search-results__item');
+		this.heading = this.root.querySelector('.search-screen__heading');
+		this.searchBar = this.root.querySelector('.search-bar');
+	}
+
+}
+
 var page = document.querySelector('.page');
-var searchScreen = document.querySelector('.search-screen');
+const DOM = new SearchScreenDOM();
 
-var resultsItems = searchScreen.querySelectorAll('.search-results__item');
-var heading = searchScreen.querySelector('.search-screen__heading');
-var searchBar = searchScreen.querySelector('.search-bar');
+var mainTl = new TimelineLite({ paused: true, reversed: true });
 
-var searchInput = searchBar.querySelector('.search-bar__input');
-var searchBottomLine = searchBar.querySelector('.search-bar__bottom-line');
+var searchBarTl = getSearchBarTl(DOM.searchBar);
+var resultsItemsTl = getResultItemsTl(DOM.resultsItems);
+var showScreenTl = getShowScreenTl(page, DOM.searchScreen);
+var showHeading = getShowHeadingTween(DOM.heading);
+
+mainTl
+	.add(showScreenTl.play())
+	.add(showHeading.play())
+	.add(searchBarTl.play())
+	.add(resultsItemsTl.play());
+
+var onSubmitTl = new TimelineLite({ paused: true })
+	.add(getShowScreenTl(page, DOM.searchScreen).play())
+	.add(getShowHeadingTween(DOM.heading).play())
+	.add(getResultItemsTl(DOM.resultsItems).play());			
 
 
-var mainTl = new TimelineLite({paused: true, reversed: true});
+PubSub.subscribe('searchSubmited', (eventName, data) => {
+	if(!data.desktop) return false;
+	onSubmitTl.play();
+});
 
-var searchBarTl = getSearchBarTl(
-	searchBottomLine,
-	searchInput,
-	false,
-	searchBar
-);
+PubSub.subscribe('closeResultsScreen', () => {
+	onSubmitTl.reverse();
+});
 
-var resultsItemsTl = getResultItemsTl(resultsItems);
-var showScreen = getShowScreenTl(page, searchScreen);
-var showHeading = getShowHeadingTween(heading);
-
-mainTl.add(showScreen.play())
-			.add(showHeading)
-			.add(searchBarTl.play())
-			.add(resultsItemsTl.play());
 
 function getShowScreenTl(page, searchScreen) {
-	return new TimelineLite({paused: true})
+	return new TimelineLite({ paused: true })
 		.set(page, { overflow: 'hidden' })
-		.to(searchScreen, 0.5, {
+		.to(DOM.root, 0.4, {
 			width: '100%',
 			display: 'block'
 		});
 }
 
-function getShowHeadingTween(heading) {
-	return TweenLite.from(heading, 0.3, {
-		autoAlpha: 0,
-		display: 'none'
-	});
-}
-
 function getResultItemsTl(resultsItems) {
-	return new TimelineLite({paused: true})
-		.staggerFrom(resultsItems, 0.6, {
-			autoAlpha: 0,
-			display: 'none'
+	return new TimelineLite({ paused: true })
+		.staggerTo(DOM.resultsItems, 0.4, {
+			autoAlpha: 1,
+			display: 'flex'
 		}, 0.2);
 }
 
+function getShowHeadingTween(heading) {
+	return TweenLite.to(DOM.heading, 0.3, {
+		autoAlpha: 1,
+		display: 'block',
+		paused: true 
+	});
+}
+
+function toggleTlDirection(tl) {
+	tl.reversed() ? tl.play() : tl.reverse();
+}
+
+
 export default mainTl;
-
-

@@ -1,0 +1,43 @@
+.sub-menu
+	padding-left: 0
+	border-top: 2px solid $accent-1
+	border-bottom: 2px solid $accent-1
+	background-color: $main-light 
+	transition: opacity 200ms 
+
+	&::before
+		+setAbsPosition(50%, -7px, left, top)
+		display: block
+		content: ''
+		width: 0
+		height: 0
+		border-left: 5px solid transparent
+		border-right: 5px solid transparent
+		border-bottom: 5px solid $accent-1
+
+.sub-menu__item
+	font-weight: 500
+	font-size: 16px
+	text-align: center
+	&:last-of-type
+		margin-bottom: 1.5rem
+
+.sub-menu__link
+	position: relative
+	display: block
+	padding: 1.5rem 3rem
+	white-space: nowrap
+
+	&::after
+		+setAbsPosition(50%, 0, left, bottom)
+		display: block
+		width: 10px
+		height: 1px
+		content: ''
+		background-color: $main-dark
+		transition: transform 200ms, background-color 250ms 
+
+	&:hover
+		&::after
+			transform: translate(-50%, 0) scaleX(2.5)
+			background-color: $accent-1

@@ -1,5 +1,6 @@
 extends /templates/layout/_layout.pug
 
+include /templates/preloader/_preloader.pug
 include /templates/nav-bar/_nav-bar.pug
 include /templates/search-screen/_search-screen.pug
 include /templates/menu-screen/_menu-screen.pug
@@ -13,7 +14,10 @@ include /templates/team-cards/_team-cards.pug
 include /templates/gallery/_gallery.pug
 include /templates/fw-boxes/_fw-boxes.pug
 include /templates/news-row/_news-row.pug
+include /templates/testimonials/_testimonials.pug
+include /templates/partners-row/_partners-row.pug
 include /templates/footer/_footer.pug
+
 
 block head
 	- var pageTitle = 'Greeny';
@@ -21,6 +25,7 @@ block head
 
 block content
 	include /assets/symbol.svg
+	+preloader()
 	+navBar()
 	+searchScreen()
 	+menuScreen()
@@ -34,6 +39,8 @@ block content
 	+gallery()
 	+fwBoxes()
 	+newsRow()
+	+testimonials()
+	+partnersRow()
 	+footer()
 	
 	include /templates/photo-swipe/_photo-swipe.html

@@ -1,0 +1,32 @@
+mixin testimonials(data)
+	+b.testimonials
+		+e.filter
+		+e.container
+			+e.row
+				+e.col
+					+e.slider.slider
+
+						+e.slider-wrapper.slider__wrapper
+
+							+e.slide.slider__slide
+								+e.BLOCKQUOTE.text “ Lorem ipsum dolor sit amet, consectetur adipisicing elit. A nobis, optio officiis! Enim alias cupiditate quisquam ex, asperiores facilis. ”
+								+e.name Sara Lorem
+								+e.position Web-Developer
+
+							+e.slide.slider__slide
+								+e.BLOCKQUOTE.text “ Placeat delectus quasi ipsum id illo. Totam, exercitationem.”
+								+e.name Sara Lorem
+								+e.position Web-Developer
+
+					+e.buttons
+						+e.SVG.button-prev.nav-buttons__.--dark
+							use(xlink:href="#nav-buttons__button-prev")
+						+e.SVG.button-next.nav-buttons__.--dark
+							use(xlink:href="#nav-buttons__button-next")
+
+		+e.footer
+			+e.container
+				+e.row
+					+e.pagination.slider__pagination--testimonials
+
+						

@@ -1,7 +1,8 @@
 .search-results-item
-	display: flex
+	display: none
 	flex-flow: row wrap
 	justify-content: center
+	opacity: 0
 	&:not(:first-child)
 		margin-top: 2.5rem
 
@@ -17,12 +18,24 @@
 	flex-basis: 20%
 
 .search-results-item__right-side
-	flex-basis: 60%
+	margin-top: 1rem
+	display: flex
+	flex-flow: column nowrap 
+	justify-content: space-between
+	flex-basis: 100%
 	padding: 0 2rem
+	text-align: center
+	+media-breakpoint-up(md)
+		flex-basis: 60%
+		margin-top: 0
+		text-align: left 
 
 .search-results-item__description
 	margin-bottom: 1rem 
 
 .search-results-item__button
-	margin-left: 70%
+	margin-top: auto
+	margin-left: 0
+	+media-breakpoint-up(md)
+		margin-left: 70%
 

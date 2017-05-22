@@ -1,5 +1,6 @@
 .news-row
 
+
 .news-row__container
 	@extend .container-fluid
 	max-width: 1170px
@@ -11,16 +12,26 @@
 .news-row__heading
 	margin-bottom: 6rem 
 
+.news-row__button-prev
+	+setAbsPosition(5px, 50%, left, top)
+	width: 42px
+	height: 42px
+
+.news-row__button-next
+	+setAbsPosition(5px, 50%, right, top)
+	width: 42px
+	height: 42px
+
 .news-row__col
 	@extend .col-12 
+	padding: 0 4rem
 
 .news-row__post
-	box-sizing: border-box
 	position: relative
 	display: flex
 	flex-flow: column nowrap
 	text-align: left
-	margin: 0 2rem 
+	margin: 0 2rem
 	&::after 
 		position: absolute
 		top: 0
@@ -43,7 +54,7 @@
 		background-color: $accent-1-light
 
 .news-row__post-img-link
-	margin: 1.2rem 0 1.5rem 
+	margin: 1.5rem 0 1.5rem 
 	display: block
 	width: 100%
 	height: 100%

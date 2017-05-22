@@ -39,7 +39,7 @@
 
 // Custom classes
 
-.slider__pagination
+.slider__pagination--hero
 	+setAbsPosition(50%, 98%)
 	display: flex 
 		
@@ -50,9 +50,13 @@
 	@media (max-height: 768px)
 		+setAbsPosition(50%, 98%)
 		display: flex 
-			
 
-.slider__bullet--hero
+.slider__pagination--testimonials
+	position: static
+	display: flex
+	flex-flow: row nowrap		
+
+.slider__bullet
 	display: block
 	margin-bottom: 8px
 	margin-left: 1.2rem 
@@ -63,6 +67,8 @@
 	background-color: $main-light
 	cursor: pointer
 
+.slider__bullet--hero 
+	@extend .slider__bullet
 	+media-breakpoint-up(xl)
 		width: 12px
 		height: 12px
@@ -73,6 +79,10 @@
 		width: 16px
 		height: 16px
 
+.slider-bullet--testimonials
+	@extend .slider__bullet
+	margin-bottom: 0
+	background-color: $accent-1 
 
 .slider__bullet--active
 	opacity: 1
@@ -84,6 +94,7 @@
 .slider__img--hero
 	height: calc(100vh - 70px)
 	min-width: 100%
+	min-height: 500px
 
 .slider__content
 	text-align: center
@@ -119,7 +130,7 @@
 		font-size: 7vw 
 	+media-breakpoint-up(lg)
 		font-size: 68px
-		font-size: 5.3vmax
+		font-size: 5.5vmax
 
 .slider__subheading
 	@extend .slider__heading 

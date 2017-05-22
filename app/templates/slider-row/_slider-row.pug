@@ -7,12 +7,14 @@ mixin sliderRow(data)
 
 				+e.col-1
 					+e.H4.upper-subheading We provide the best of it 
+					
 					+e.H2.heading.section-heading__.--color_light.--slider-row Our services
+
 					+e.buttons
-						+e.SVG.button-prev--border
-							use(xlink:href="#slider-row__button-prev")
-						+e.SVG.button-next--border
-							use(xlink:href="#slider-row__button-next")
+						+e.SVG.button-prev.nav-buttons__
+							use(xlink:href="#nav-buttons__button-prev")
+						+e.SVG.button-next.nav-buttons__
+							use(xlink:href="#nav-buttons__button-next")
 
 				+e.col-2
 					+e.slider.slider__
@@ -24,7 +26,7 @@ mixin sliderRow(data)
 									+e.img.slider-row__img(src='assets/img/slider-row/Service.jpg')
 
 								+e.content.slider-row__slide-content
-									+e.A.heading-button.heading-button__(href="#")
+									+e.A.heading-button.heading-button__()
 										+e.SVG.icon
 											use(xlink:href="#slider-row__security")
 										+e.background

@@ -1,4 +1,5 @@
 .team-cards
+	position: relative
 
 .team-cards__container
 	@extend .container
@@ -34,3 +35,25 @@
 
 .team-cards__card
 	display: inline-block 
+
+.team-cards__stripes
+	position: absolute
+	width: 100%
+
+.team-cards__stripe
+	position: absolute 
+	display: block
+	height: 2px
+	background-color: $accent-1
+
+	&:nth-of-type(n+1)
+		top: 0
+
+	&:nth-of-type(n+2)
+		top: 8px
+
+	&:nth-of-type(n+3)
+		top: 16px
+
+
+		

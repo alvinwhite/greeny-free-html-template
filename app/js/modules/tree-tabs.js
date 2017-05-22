@@ -1,4 +1,4 @@
-import {TweenLite, TimelineLite} from 'gsap';
+import { TweenMax, TimelineLite, Bounce} from 'gsap';
 import PubSub from 'pubsub-js';
 
 const section = document.querySelector('.tree-tabs');
@@ -13,8 +13,10 @@ const activeBoxClass = 'tab-box--active';
 PubSub.subscribe("init", initTreeTabs);
 
 function initTreeTabs() {
+
 	indexItems(boxes, controls);
 	controlsWrapper.addEventListener('click', handleControlClick);
+
 }
 
 function handleControlClick(e) {
@@ -54,13 +56,14 @@ function appendActiveClass(items, index, activeClass) {
 
 }
 
+
 function indexItems(...items) {
 
 	items.forEach((item) => {
-		if(!item) return false;
+		if (!item) return false;
 
 		item.forEach((el, i) => {
-			if(!el.hasAttribute('data-index')) {
+			if (!el.hasAttribute('data-index')) {
 				el.setAttribute('data-index', i);
 			}
 		});

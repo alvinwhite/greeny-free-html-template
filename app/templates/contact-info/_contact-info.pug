@@ -1,0 +1,19 @@
+mixin contactInfo(data)
+	+b.contact-info.section
+		+e.container
+
+			+e.row
+
+				+e.box.hover-box__.--left_md.--small
+					+e.row
+						+e.SVG.icon.location-icon
+							use(xlink:href="#location-icon__location")
+						+e.heading Visit us
+					+e.content Chicago, Hello World St. 8/13
+
+				+e.box.hover-box__.--right_md.--small
+					+e.row
+						+e.SVG.icon.mail-icon
+							use(xlink:href="#mail-icon__mail")
+						+e.heading Contact via e-mail
+					+e.content helloworld@lorem.ips

@@ -1,29 +1,33 @@
 .heading-button
 	position: relative
-	padding: 0.8rem 1rem
+	padding: 1rem
+	border-radius: 30px
 	display: flex
 	align-items: center
-	border-radius: 3rem 
+	justify-content: center
+	flex-wrap: wrap 
 	background-color: $accent-2
 	overflow: hidden
-	justify-content: center
+	cursor: pointer 
 
 .heading-button__background
 	position: absolute
 	top: 0
-	left: 0
+	left: 50%
+	transform: translateX(-50%)
 	display: block
 	width: 0%
 	height: 100%
 	border-radius: 3rem
 	content: ''
 	background-color: $accent-2-dark
-
+	
 .heading-button__icon
-	width: 30px
-	height: 30px
+	width: 24px
+	height: 24px
 	z-index: 3
 
 .heading-button__heading
 	padding-left: 1rem 
+	font-weight: 600
 	z-index: 3

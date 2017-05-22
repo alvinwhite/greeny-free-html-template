@@ -1,17 +1,23 @@
-function getShowSearchBarTl(line, input, btn, searchBar) {
+'use strict';
 
-	if(!line || !input || !searchBar) return false;
+import { TimelineLite } from 'gsap';
 
-	var tl = new TimelineLite({paused: true});
+function getShowSearchBarTl(searchBar) {
+
+	var input = searchBar.querySelector('.search-bar__input');
+	var line = searchBar.querySelector('.search-bar__bottom-line');
+	var button = searchBar.querySelector('.search-bar__submit') || false;
+
+	var tl = new TimelineLite({ paused: true });
 
 	tl
 		.call(toggleVisibility, [searchBar])
-		.from(line, 0.6, {width: '0%' })
-		.from(input, 0.5, { autoAlpha: 0 });
-		
-		if (btn) {
-			tl.from(btn, 0.8, { autoAlpha: 0, rotationX: 360 }, "-=0.8");
-		}
+		.from(line, 0.6, { width: '0%', display: 'none' })
+		.from(input, 0.5, { autoAlpha: 0, display: 'none' });
+
+	if (button) {
+		tl.from(button, 0.8, { autoAlpha: 0, rotationX: 360, display: 'none' }, "-=0.8");
+	}
 
 	return tl;
 
@@ -22,4 +28,7 @@ function toggleVisibility(searchBar) {
 	searchBar.classList.toggle('search-bar--hidden');
 }
 
-export {getShowSearchBarTl as default, toggleVisibility as toggleSbVisibility};
+export {
+	getShowSearchBarTl as default,
+	toggleVisibility as toggleSbVisibility
+};

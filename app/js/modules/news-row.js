@@ -17,8 +17,8 @@ const swiperOptions = {
 		}
 	},
 	//Navigation Buttons
-	nextButton: '.slider-row__button-next',
-	prevButton: '.slider-row__button-prev',
+	nextButton: '.news-row__button-next',
+	prevButton: '.news-row__button-prev',
 	//Accessability
 	ally: true,
 	//NameSpace
@@ -36,7 +36,8 @@ const swiperOptions = {
 	bulletClass: 'slider__bullet',
 	bulletActiveClass: 'slider__bullet--active',
 	paginationHiddenClass: 'slider__pagination--hidden',
-	paginationCurrentClass: 'slider__pagination--current'
+	paginationCurrentClass: 'slider__pagination--current',
+	buttonDisabledClass: 'nav-buttons--hidden'
 };
 
 PubSub.subscribe("init", initNewsRow);

@@ -14,20 +14,21 @@ function initNumbersRow() {
 function getCountingTimeline() {
 	var tl = new TimelineLite({paused: true});
 
-	numbers.forEach((el, i) => {
+	numbers.forEach((number, i) => {
 
-		let signNeeded = el.hasAttribute('data-sign');
-		let finalValue = Number(el.getAttribute('data-count-to'));
+		let signNeeded = number.hasAttribute('data-sign');
+		let finalValue = Number(number.getAttribute('data-count-to'));
 		let localCounter = Object.assign(startCounter);
 
 		tl.add( TweenLite.to(localCounter, 1, {
 			counter: finalValue,
 			roundProps: 'counter',
-			onUpdate: updateDOMValue,
-			onUpdateParams: [el, localCounter],
+			onUpdate: () => {
+				number.innerHTML = localCounter.counter;
+			},
 			onComplete: signNeeded ? addPlusSign : false ,
-			onCompleteParams: [el]
-		}) );
+			onCompleteParams: [number]
+		}));
 
 	});
 
@@ -35,13 +36,9 @@ function getCountingTimeline() {
 
 }
 
-function addPlusSign(el) {
-	el.innerHTML += '+';  
-}
 
-function updateDOMValue(el, localCounter) {
-	el.innerHTML = localCounter.counter;
+function addPlusSign(number) {
+	number.innerHTML += '+';  
 }
-
 
 export default initNumbersRow;

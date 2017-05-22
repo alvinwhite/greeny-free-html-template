@@ -22,18 +22,18 @@ mixin hero(data)
 					
 					+e.slide
 						+e.img--hero(src='assets/img/slider/1.jpg')
-				+e.pagination
+				+e.pagination--hero
 
 		+e.boxes-row
-			+b.hover-box--faded
+			+b.hover-box.--faded.--inline_xl
 				+e.heading This heading is waiting to become valuable.
 				+e.content Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do esmod tempor inciddo quis nostrud exer aliquip ex ea
 
-			+b.hover-box--faded
+			+b.hover-box.--faded.--inline_xl
 				+e.heading This is a heading of much less value
 				+e.content Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do esmod tempor inciddo quis nostrud aliquip ex ea cmodo
 
-			+b.hover-box--faded
+			+b.hover-box.--faded.--inline_xl
 				+e.heading This heading has no value yet it’s the longest
 				+e.content Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do esmod tempor inciddo quis nostris ut aliquip ex ea codo
 

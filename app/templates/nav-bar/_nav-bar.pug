@@ -10,27 +10,45 @@ mixin navBar(data)
 
 				+e.UL.menu.main-menu__
 					+e.item
-						+e.link--active(href="#Home") Home
+						+e.link--active(href="/") Home
 					+e.item
-						+e.link(href="#AboutUs") About us
+						+e.link(href="/about") About us
 					+e.item
 						+e.link(href="#Blog") Blog
 					+e.item
 						+e.link(href="#Gallery") Gallery
-					+e.item
+					+e.item--hasSub
 						+e.link(href="#Pages") Pages
+						+e.more-button.more-button__
+							+e.rect
+							+e.rect 
+
+
+						+e.UL.sub-menu.sub-menu__
+							+e.item
+								+e.link(href="#") Our team
+							+e.item
+								+e.link(href="#") Contact us
+							+e.item
+								+e.link(href="#") Lorem ipsum
+							+e.item
+								+e.link(href="#") Lorem ipsum
+							+e.item
+								+e.link(href="#") Lorem ipsum
+							+e.item
+								+e.link(href="#") Lorem ipsum
 					
-				+e.FORM(action="").search-bar.search-bar__.--hidden
+				+e.FORM.search-bar.search-bar__.--hidden
 					+e.INPUT.input( type = "text" placeholder="Type what you're looking for..." )
-					+e.BUTTON.submit
+					+e.BUTTON.submit( type = "submit" )
 						+e.SVG.submit-icon.arrow-icon--accent1
-							use(xlink:href="#arrow-icon__arrow2")
+							use( xlink:href="#arrow-icon__arrow2" )
 					+e.bottom-line 
 
 				+e.buttons
 					+e.BUTTON.menu-button.menu-button__
 						+e.SVG.icon
-							use(xlink:href="#menu-button__menu")
+							use( xlink:href="#menu-button__menu" )
 					+e.BUTTON.search-button.search-button__
 						+e.SVG.icon
-							use(xlink:href="#search-button__search")
+							use( xlink:href="#search-button__search" )

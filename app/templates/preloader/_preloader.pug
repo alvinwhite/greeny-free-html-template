@@ -1,0 +1,39 @@
+mixin preloader(data)
+	+b.preloader
+
+		style(type="text/css").
+
+			.preloader {
+				position: fixed;
+				top: 0;
+				left: 0;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-flow: column nowrap;
+				width: 100%;
+				height: 100vh;
+				background-color: #A8D284; 
+				z-index: 2000;
+			}
+
+			.preloader__svg {
+				opacity: 0;
+			}
+
+			.prelaoder__path {
+				fill: #fff;
+			}
+
+			.preloader__text {
+				margin-top: 1rem;
+				letter-spacing: 1px;
+				font-size: 24px;
+				font-family: 'Dosis';
+				font-weight: 800;
+				transform: scale(0);
+				color: #fff;
+			}
+
+		include preloader.svg 
+		+e.text Loading...

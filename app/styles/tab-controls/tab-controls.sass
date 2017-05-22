@@ -2,25 +2,32 @@
 	display: flex
 
 .tab-controls--reversed_sm
+
 	+media-breakpoint-up(sm)
+
 		.tab-controls__control--active
 			.tab-controls__icon-bg
 				border-color: $main-light
+
 		.tab-controls__icon-bg
 			border: none 
 			background-color: $accent-1-light
+
 		.tab-controls__icon
 			fill: $main-light 
 
 .tab-controls__control
+	box-sizing: content-box
 	display: block
 	cursor: pointer
 	transform: scale(0.8)
+	transition: transform 250ms
 
 .tab-controls__control--active
 	transform: scale(1)
 	.tab-controls__icon-bg
 		border: 2px dashed $accent-1-light
+		transition: border-width 200ms
 
 .tab-controls__icon
 	width: 36px
@@ -32,6 +39,3 @@
 	border-radius: 50%
 	border: 2px solid $accent-1-light
 	background-color: $main-light
-
-
-

@@ -3,6 +3,10 @@
 import swiper from 'swiper';
 import PubSub from 'pubsub-js';
 
+const root = document.querySelector('.slider-row');
+const prevButton = root.querySelector('.slider-row__button-prev');
+const nextButton = root.querySelector('.slider-row__button-next');
+
 var swiperOptions = {
 	//Slides grid
 	slidesPerView: 3,
@@ -12,13 +16,13 @@ var swiperOptions = {
 		498: {
 			slidesPerView: 1,
 		},
-		768: {
+		996: {
 			slidesPerView: 2
 		}
 	},
 	//Navigation Buttons
-	nextButton: '.slider-row__button-next',
-	prevButton: '.slider-row__button-prev',
+	nextButton: nextButton,
+	prevButton: prevButton,
 	//Accessability
 	ally: true,
 	//NameSpace
@@ -36,13 +40,19 @@ var swiperOptions = {
 	bulletClass: 'slider__bullet',
 	bulletActiveClass: 'slider__bullet--active',
 	paginationHiddenClass: 'slider__pagination--hidden',
-	paginationCurrentClass: 'slider__pagination--current'
+	paginationCurrentClass: 'slider__pagination--current',
+	buttonDisabledClass: 'nav-buttons--disabled'
 };
 
 PubSub.subscribe("init", initSliderRow);
 
 function initSliderRow() {
-	const swiperInit = new Swiper('.slider-row__slider', swiperOptions);
+
+	const swiper = new Swiper('.slider-row__slider', swiperOptions);
+
+
 }
+
+
 
 export default initSliderRow;
