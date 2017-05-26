@@ -1,6 +1,6 @@
 'use strict';
 
-const isDev = !process.env.NODE_ENV || process.env.NODE_ENV == 'development';
+const isDev = !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
 const webpackStream = require('webpack-stream');
 const webpack = webpackStream.webpack;
 const path = require('path');

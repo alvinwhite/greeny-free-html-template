@@ -2,6 +2,7 @@
 
 import PubSub from 'pubsub-js';
 import ScrollMagic from 'scrollmagic';
+import "core-js/library/fn/array/from"; 
 
 import preloader from './modules/preloader.js';
 import navBarInit from './modules/nav-bar.js';
