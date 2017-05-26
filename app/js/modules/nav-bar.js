@@ -9,7 +9,9 @@ import toggleSbVisibility from './search-bar.js';
 import searchScreenTl from './search-screen.js';
 import menuScreenTl from './menu-screen.js';
 
-// for the sake of coolness, of course
+import { toggleTlDirection } from '../common.js';
+
+// {Singleton} for the sake of coolness, of course
 // also because you cannot make this kind of
 // assignment with an object litteral
 class NavBarDOM {
@@ -118,10 +120,6 @@ function getFadeOutTween(el) {
 		autoAlpha: 0,
 		paused: true
 	});
-}
-
-function toggleTlDirection(tl) {
-	tl.reversed() ? tl.play() : tl.reverse();
 }
 
 export default initNavBar;

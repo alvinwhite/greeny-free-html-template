@@ -6,7 +6,7 @@ mixin hero(data)
 				+e.wrapper
 
 					+e.slide
-						+e.img--hero(src='assets/img/slider/1.jpg')
+						+e.img--hero(src='assets/img/hero/leaf.jpg')
 						+e.content--hero
 							+e.H1.heading--hero This is a hero headline
 							+e.H2.subheading--hero Learn more about it
@@ -16,12 +16,13 @@ mixin hero(data)
 									use(xlink:href='#arrow-icon__arrow2')
 
 					+e.slide
-						+e.img--hero(src='assets/img/slider/2.jpg')
+						+e.img--hero(src='assets/img/hero/frog.jpg')
 						+e.content--hero
-							+e.H1.heading--hero HELLO WORLD!
+							+e.H1.heading--hero And here goes another one
+							+e.H2.subheading--hero Tired yet? 
 					
 					+e.slide
-						+e.img--hero(src='assets/img/slider/1.jpg')
+						+e.img--hero(src='assets/img/hero/plant.jpg')
 				+e.pagination--hero
 
 		+e.boxes-row
@@ -30,10 +31,10 @@ mixin hero(data)
 				+e.content Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do esmod tempor inciddo quis nostrud exer aliquip ex ea
 
 			+b.hover-box.--faded.--inline_xl
-				+e.heading This is a heading of much less value
+				+e.heading This is a heading seems to be slightly less valuable
 				+e.content Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do esmod tempor inciddo quis nostrud aliquip ex ea cmodo
 
 			+b.hover-box.--faded.--inline_xl
-				+e.heading This heading has no value yet it’s the longest
+				+e.heading This is just a usual heading, no one cares about it
 				+e.content Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do esmod tempor inciddo quis nostris ut aliquip ex ea codo
 
