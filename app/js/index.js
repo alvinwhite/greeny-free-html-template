@@ -2,30 +2,28 @@
 
 import PubSub from 'pubsub-js';
 import ScrollMagic from 'scrollmagic';
-import "core-js/library/fn/array/from"; 
 
-import preloader from './modules/preloader.js';
-import navBarInit from './modules/nav-bar.js';
-import searchScreenInit from './modules/search-screen.js';
-import mainMenuInit from './modules/main-menu.js';
-import heroInit from './modules/hero.js';
-import asideImageInit from './modules/aside-image.js';
-import sliderRowInit from './modules/slider-row.js';
-import treeTabsInit from './modules/tree-tabs.js';
-import numbersRowInit from './modules/numbers-row.js';
-import teamCardsInit from './modules/team-cards.js';
-import newsRowInit from './modules/news-row.js';
-import galleryInit from './modules/gallery.js';
-import testimonialsInit from './modules/testimonials.js';
+// Polyfills 
+import "core-js/library/fn/array/from";
+import "core-js/library/fn/array/for-each";  
 
-const PAGE_EVENTS = {
-	init: 'init',
-	windowResized: 'windowResized',
-	windowLoaded: 'windowLoaded'
-};
+import { PAGE_EVENTS } from './constants';
+
+import './modules/preloader';
+import './modules/nav-bar';
+import './modules/search-screen';
+import './modules/main-menu';
+import './modules/hero';
+import './modules/aside-image';
+import './modules/slider-row';
+import './modules/tree-tabs';
+import './modules/numbers-row';
+import './modules/team-cards';
+import './modules/news-row';
+import './modules/gallery';
+import './modules/testimonials';
+
 const animationController = new ScrollMagic.Controller();
-
-preloader();
 
 PubSub.publish(PAGE_EVENTS.init);
 

@@ -1,6 +1,5 @@
 'use strict';
 
-import PubSub from 'pubsub-js';
 import swiper from 'swiper';
 
 const swiperOptions = {
@@ -40,10 +39,8 @@ const swiperOptions = {
 	buttonDisabledClass: 'nav-buttons--hidden'
 };
 
-PubSub.subscribe("init", initNewsRow);
+initNewsRow();
 
 function initNewsRow() {
 	const swiperInit = new Swiper('.news-row__slider', swiperOptions);
 }
-
-export default initNewsRow;

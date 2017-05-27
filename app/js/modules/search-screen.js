@@ -2,6 +2,8 @@ import PubSub from 'pubsub-js';
 import {TweenLite, TimelineLite} from 'gsap';
 
 import {moduleEvents as NAV_EVENTS} from './nav-bar.js';
+import { toggleTlDirection } from '../common';
+
 import getSearchBarTl from './search-bar.js';
 
 class SearchScreenDOM {
@@ -71,10 +73,5 @@ function getShowHeadingTween(heading) {
 		paused: true 
 	});
 }
-
-function toggleTlDirection(tl) {
-	tl.reversed() ? tl.play() : tl.reverse();
-}
-
 
 export default mainTl;

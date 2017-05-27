@@ -1,12 +1,10 @@
 'use strict';
 
 import swiper from 'swiper';
-import PubSub from 'pubsub-js';
 
 const root = document.querySelector('.testimonials');
 const slider = root.querySelector('.testimonials__slider');
 const pagination = root.querySelector('.testimonials__pagination');
-
 
 var swiperOptions = {
 	//Pagination
@@ -35,10 +33,8 @@ var swiperOptions = {
 	paginationCurrentClass: 'slider__pagination--current'
 };
 
-PubSub.subscribe('init', initTestominals);
+initTestominals();
 
 function initTestominals() {
 	const swiperInit = new Swiper(slider, swiperOptions);
 }
-
-export default initTestominals;

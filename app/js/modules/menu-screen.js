@@ -1,4 +1,3 @@
-import PubSub from 'pubsub-js';
 import {TweenLite, TimelineLite} from 'gsap';
 
 var page = document.querySelector('.page');
@@ -12,6 +11,5 @@ function getShowMenuScreenTl(menuScreen) {
 			display: 'flex'
 		}); 
 }
-
 
 export default mainTl;

@@ -1,7 +1,6 @@
 'use strict';
 
 import swiper from 'swiper';
-import PubSub from 'pubsub-js';
 
 const root = document.querySelector('.slider-row');
 const prevButton = root.querySelector('.slider-row__button-prev');
@@ -44,15 +43,8 @@ var swiperOptions = {
 	buttonDisabledClass: 'nav-buttons--disabled'
 };
 
-PubSub.subscribe("init", initSliderRow);
+initSliderRow();
 
 function initSliderRow() {
-
 	const swiper = new Swiper('.slider-row__slider', swiperOptions);
-
-
 }
-
-
-
-export default initSliderRow;

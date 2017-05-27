@@ -29,14 +29,14 @@ const onLoadTl = new TimelineMax({paused: true})
 	})
 	.set(page, {overflow: 'auto'});
 
-export default function() {
+function preloaderInit() {
 	onInitTl.play();
 
 	PubSub.subscribe('windowLoaded', () => {
-
 		pathsTl.eventCallback('onUpdate', () => {
 			onLoadTl.play();
 		});
-
 	});
 }
+
+preloaderInit();

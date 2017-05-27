@@ -7,10 +7,9 @@ var pswpElement = document.querySelector('.pswp');
 var imgContainer = document.querySelector('.gallery__img-grid');
 var imgLinks = imgContainer.querySelectorAll('.gallery__img-links');
 
-PubSub.subscribe("init", initGallery);
+initGallery();
 
 function initGallery() {
-
 	initPhotoSwipe(imgContainer, imgLinks);
 
 	var mixer = mixItUp(imgContainer, {
@@ -44,12 +43,10 @@ function handleLinkClick(e) {
 			}
 			target = target.parentNode;
 		}
-		
 }
 
 
 function appendAttributes(links) {
-
 	links.forEach((link, i) => {
 
 		let dimensions = getDimensions(link.getAttribute("href")).then((dimensions) => {
@@ -60,11 +57,9 @@ function appendAttributes(links) {
 		link.setAttribute('data-index', i);
 		
 	});
-
 };
 
 function getDimensions(url) {
-
 	var img = new Image();
 	img.src = url;
 
@@ -83,7 +78,6 @@ function openPhotoSwipe(index, links) {
 	};
 
 	links.forEach((el) => {
-
 		let url = el.getAttribute("href");
 		let w = el.getAttribute("data-width");
 		let h = el.getAttribute("data-height");
@@ -109,5 +103,3 @@ function openPhotoSwipe(index, links) {
 	pswp.init();
 
 }
-
-export default initGallery;

@@ -9,7 +9,8 @@ import toggleSbVisibility from './search-bar.js';
 import searchScreenTl from './search-screen.js';
 import menuScreenTl from './menu-screen.js';
 
-import { toggleTlDirection } from '../common.js';
+import { PAGE_EVENTS } from '../constants';
+import { toggleTlDirection } from '../common';
 
 // {Singleton} for the sake of coolness, of course
 // also because you cannot make this kind of
@@ -28,8 +29,6 @@ class NavBarDOM {
 
 const DOM = new NavBarDOM();
 const EVENTS = {
-	pageInit: 'init',
-	windowResized: 'windowResized',
 	searchSubmited: 'searchSubmited'
 };
 
@@ -47,12 +46,10 @@ var desktopSearchTl = new TimelineLite({ paused: true, reversed: true })
 // Module states
 var searchSubmited = false;
 
-//Sub to the page events 
-PubSub.subscribe(EVENTS.pageInit, initNavBar);
-PubSub.subscribe(EVENTS.windowResized, handleWindowResize);
+initNavBar();
+PubSub.subscribe(PAGE_EVENTS.windowResized, handleWindowResize);
 
 function initNavBar() {
-
 	DOM.searchBar.addEventListener('submit', function(e) {
 		e.preventDefault();
 
@@ -62,12 +59,10 @@ function initNavBar() {
 		});
 
 		searchSubmited = true;
-
 	});
 
 	DOM.menuBtn.addEventListener('click', handleMenuBtnClick);
 	DOM.searchBtn.addEventListener('click', handleSearchBtnClick);
-
 }
 
 function handleWindowResize(eName, data) {
@@ -121,5 +116,3 @@ function getFadeOutTween(el) {
 		paused: true
 	});
 }
-
-export default initNavBar;

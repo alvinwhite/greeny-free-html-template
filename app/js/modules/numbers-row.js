@@ -5,7 +5,7 @@ var section = document.querySelector('.numbers-row');
 var numbers = section.querySelectorAll('.numbers-row__number');
 var startCounter = {counter: 0};
 
-PubSub.subscribe("init", initNumbersRow);
+initNumbersRow();
 
 function initNumbersRow() {
 	getCountingTimeline().play();
@@ -40,5 +40,3 @@ function getCountingTimeline() {
 function addPlusSign(number) {
 	number.innerHTML += '+';  
 }
-
-export default initNumbersRow;

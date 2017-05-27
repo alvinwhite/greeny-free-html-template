@@ -8,7 +8,7 @@ const leftStripes = root.querySelector('.team-cards__stripes--left');
 const middleStripes = root.querySelector('.team-cards__stripes--middle');
 const rightStripes = root.querySelector('.team-cards__stripes--right');
 
-PubSub.subscribe("init", initTeamCards);
+initTeamCards();
 
 function initTeamCards() {
 	animateButtonHover();
@@ -48,5 +48,3 @@ function getStripesTl(stripeNode) {
 
 	return tl;
 }
-
-export default initTeamCards;

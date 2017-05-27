@@ -3,27 +3,20 @@ import { TweenLite, TimelineLite } from 'gsap';
 
 const menuItems = document.querySelectorAll('.main-menu__item');
 
-PubSub.subscribe('init', initMainMenu);
+initMainMenu();
 
 function initMainMenu() {
-
 	attachMenuItemsListeners();
-
 }
 
 function attachMenuItemsListeners() {
-
 	var showSubTl, isClicked;
 
-
 	menuItems.forEach((item) => {
-
 		var subMenu = item.querySelector('.main-menu__sub-menu');
 		var containsSub = Boolean(subMenu);
 
-
 		if (containsSub) {
-
 			showSubTl = new TimelineLite({ paused: true })
 				.from(subMenu, 0.1, {
 					opacity: 0
@@ -34,13 +27,10 @@ function attachMenuItemsListeners() {
 			item.addEventListener('click', handleMenuItemClick);
 
 		}
-
 	});
 
 	function handleMenuItemClick(e) {
-
 		e.preventDefault();
-
 
 		var subMenu = this.querySelector('.main-menu__sub-menu');
 		var moreBtn = this.querySelector('.main-menu__more-button');
@@ -78,11 +68,9 @@ function attachMenuItemsListeners() {
 					isClicked = true;
 
 				}
-
 	}
 
 	function handleMenuItemMouseEnter(e) {
-
 		var menuLink = this.querySelector('.main-menu__link') || false;
 		var subMenu = this.querySelector('.main-menu__sub-menu') || false;
 		var moreBtn = this.querySelector('.main-menu__more-button') || false;
@@ -94,11 +82,9 @@ function attachMenuItemsListeners() {
 			showSubTl.play();
 		}
 
-
 	}
 
 	function handleMenuItemMouseLeave(e) {
-
 		var menuLink = this.querySelector('.main-menu__link') || false;
 		var subMenu = this.querySelector('.main-menu__sub-menu') || false;
 		var moreBtn = this.querySelector('.main-menu__more-button') || false;
@@ -113,5 +99,3 @@ function attachMenuItemsListeners() {
 	}
 
 }
-
-export default initMainMenu;

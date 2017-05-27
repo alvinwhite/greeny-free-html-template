@@ -32,7 +32,7 @@ var swiperOptions = {
 	paginationCurrentClass: 'slider__pagination--current'
 };
 
-PubSub.subscribe("init", initHero);
+initHero();
 
 function initHero() {
 	const swiperInit = new Swiper('.hero__slider', swiperOptions);
@@ -57,7 +57,7 @@ function adjustImages(images) {
 	const h = window.innerHeight - 70;
 	const w = window.innerWidth;
 	
-	if(!images) return null;
+	if(images === undefined) return null;
 	if(!images.forEach) images = Array.from(images);
 
 	images.forEach((img) => {
@@ -65,6 +65,3 @@ function adjustImages(images) {
 	});
 
 };
-
-
-export default initHero;
