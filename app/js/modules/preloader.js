@@ -27,7 +27,7 @@ const onLoadTl = new TimelineMax({paused: true})
 		opacity: 0, 
 		display: 'none'
 	})
-	.set(page, {overflow: 'auto'});
+	.set(page, {'overflow': 'auto', 'overflow-x': 'hidden'});
 
 function preloaderInit() {
 	onInitTl.play();

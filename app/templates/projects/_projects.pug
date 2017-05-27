@@ -1,18 +1,26 @@
 mixin projects(data)
-  +b.projects.section
+	+b.projects.section
 
-    +e.container
-      +e.row
-      
-        +b.project
+		+e.container
 
-          +e.number-box
-          +e.img-box
-            +e.img 
+			+e.row--centred 
+				+e.H2.heading.section-heading__.--centred Projects
+					+e.dots
+						+e.dot
+						+e.dot
+						+e.dot
 
-          +e.aside-box
-            +e.heading 
-            +e.tags
-            +e.text
-            +e.button
-      
+			+e.row
+			
+				+b.project
+
+					+e.number-box
+					+e.img-box
+						+e.img(src="assets/img/projects/windmills-2.jpg")
+
+					+e.info
+						+e.heading 
+						+e.tags
+						+e.text
+						+e.button.link-button--color_accent-light 
+			

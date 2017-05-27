@@ -1,12 +1,14 @@
 extends /templates/layout/_layout.pug
 
+include /templates/preloader/_preloader.pug
 include /templates/nav-bar/_nav-bar.pug
 include /templates/search-screen/_search-screen.pug
 include /templates/menu-screen/_menu-screen.pug
 include /templates/text-section/_text-section.pug
 include /templates/contact-info/_contact-info.pug
 include /templates/projects/_projects.pug
-include /templates/preloader/_preloader.pug
+include /templates/testimonials/_testimonials.pug
+include /templates/partners-row/_partners-row.pug 
 include /templates/footer/_footer.pug
 
 block head
@@ -20,8 +22,10 @@ block content
 	+searchScreen()
 	+menuScreen()
 	+textSection()
-	+contactInfo()
 	+projects()
+	+contactInfo()
+	+testimonials()
+	+partnersRow()
 	+footer()
 
 	include /templates/photo-swipe/_photo-swipe.html   

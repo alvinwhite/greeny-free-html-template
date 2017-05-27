@@ -4,8 +4,11 @@ import PubSub from 'pubsub-js';
 import ScrollMagic from 'scrollmagic';
 
 // Polyfills 
-import "core-js/library/fn/array/from";
-import "core-js/library/fn/array/for-each";  
+import "core-js/fn/array/from";
+import "core-js/fn/object/assign";
+import "core-js/fn/promise";
+import 'nodelist-foreach-polyfill';
+import 'classlist-polyfill';
 
 import { PAGE_EVENTS } from './constants';
 

@@ -1,18 +1,13 @@
 'use strict';
 
 import PubSub from 'pubsub-js';
-import preloader from './modules/preloader.js';
-import navBarInit from './modules/nav-bar.js';
-import searchScreenInit from './modules/search-screen.js';
-import mainMenuInit from './modules/main-menu.js';
+import './modules/preloader';
+import './modules/nav-bar';
+import './modules/search-screen';
+import './modules/main-menu';
+import './modules/testimonials';
 
-const PAGE_EVENTS = {
-	init: 'init',
-	windowResized: 'windowResized',
-	windowLoaded: 'windowLoaded'
-};
-
-preloader();
+import { PAGE_EVENTS } from './constants';
 
 PubSub.publish(PAGE_EVENTS.init);
 

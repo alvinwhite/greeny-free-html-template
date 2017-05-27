@@ -1,6 +1,7 @@
 import PubSub from 'pubsub-js';
 import { TweenLite, TimelineLite } from 'gsap';
 
+
 const menuItems = document.querySelectorAll('.main-menu__item');
 
 initMainMenu();
