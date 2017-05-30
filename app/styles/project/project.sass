@@ -1,42 +1,136 @@
 .project
 	padding: 0 1rem
 
+	&:hover 
+		.project__heading::after
+			width: 15%
+	
+	+media-breakpoint-up(md)
+		display: flex
+		flex-flow: row wrap
+
+
+	
 .project__row
-	margin: 1.5rem 0 2rem
+	position: relative
+	margin: 2rem 0 2.5rem
 	display: flex
 	align-items: center 
 	justify-content: space-around
+	
+	+media-breakpoint-up(md)
+		margin: 0
+		flex-basis: 50%
+		flex-flow: row wrap
+	
+	&::before
+		position: absolute
+		display: block
+		content: ''
+		width: 200vw
+		height: 8rem
+		background-color: $accent-1
+		
 
 .project__number-box
+	position: relative
+	padding: 1rem 1.2rem 
+	+media-breakpoint-up(md)
+		+setAbsPosition(20px,0,left,top)
 
 .project__number
 	font-family: $heading-font
-	font-size: 4.2rem
+	font-size: 4.8rem
+	line-height: 0.8
 
-.project__img-box 
+
+.project__stripe-group
+	+setAbsPosition(0,0,right,bottom)
+	width: 100%
+	height: 100%
+
+	&:first-of-type
+		.project__stripe
+			+setAbsPosition(0,0,left,top)
+
+
+.project__stripe
+	+setAbsPosition(0,0,right,bottom)
+	background-color: $accent-1-light
+
+	&:first-child
+		width: 45%
+		height: 2px 
+
+	&:last-child
+		height: 35%
+		width: 2px 
+
+
+
+.project__img-box
+	position: relative
+	z-index: 3
+	+media-breakpoint-up(md)
+		flex-basis: 50%
 
 .project__img
 	max-width: 100%
 
 .project__info
+	margin-top: 2rem
 	text-align: center
 
+	+media-breakpoint-up(md)
+		flex-basis: 50%
+		margin-left: auto
+
 .project__heading
-	margin-bottom: 1.5rem 
+	margin-bottom: 1rem 
+	display: inline-block
+	position: relative
+	padding-bottom: 1rem
 	font-size: 2.4rem 
 
+	&::after
+		position: absolute
+		bottom: 0
+		left: 0
+		display: block
+		content: ''
+		width: 0
+		height: 2px
+		background-color: $accent-1-light
+		transition: width 250ms
+
 .project__tags
+	
 
 .project__tag
+	position: relative
 	display: inline-block
 	border-radius: 25px
 	margin-left: 1rem
-	padding: 0.6rem 1.2rem 
+	padding: 0.6rem 1.2rem 0.6rem 2.4rem 
 	font-size: 1.4rem 
 	font-style: italic
 	font-weight: 300
 	color: $main-light 
 	background-color: $accent-1-light
+	cursor: pointer 
+
+	&:hover
+		background-color: $accent-2
 	
+	&::before
+		+setAbsPosition(10px, 50%, left, top)
+		display: block
+		width: 7px
+		height: 7px
+		border-radius: 50%
+		background-color: $main-light
+		content: ''
+
 .project__text
 	margin-bottom: 2rem
+	padding: 0 1rem
