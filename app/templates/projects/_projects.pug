@@ -13,14 +13,24 @@ mixin projects(data)
 			+e.row
 			
 				+b.project
-
-					+e.number-box
+					
 					+e.img-box
 						+e.img(src="assets/img/projects/windmills-2.jpg")
+					
+					+e.row
+						+e.number-box
+							+e.number 01
+						
+						+e.tags
+								+e.SPAN.tag Ecoenergy
+								+e.SPAN.tag Construction
 
 					+e.info
-						+e.heading 
-						+e.tags
-						+e.text
-						+e.button.link-button--color_accent-light 
+						
+						+e.H2.heading A sample heading 
+						+e.text  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat dolores neque excepturi consectetur ipsam dolorem ducimus voluptatibus magnam, asperiores omnis minima provident voluptates deserunt facilis, rerum fugit repellat harum cupiditate!
+						+e.A.button.link-button__.--color_accent-light(href="#")
+							+e.text Read more 
+							+e.SVG.icon.arrow-icon
+								use(xlink:href="#arrow-icon__arrow2")
 			

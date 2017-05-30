@@ -10,9 +10,8 @@ const svg = root.querySelector('.preloader__svg');
 const text = root.querySelector('.preloader__text');
 const paths = svg.querySelectorAll('.preloader__path');
 
-const pathsTl = new TimelineMax({repeat: -1}).staggerFrom(paths, .4, {
-		opacity: 0
-	}, .2);
+const pathsTl = new TimelineMax({repeat: -1})
+	.staggerFrom(paths, .4, { opacity: 0 }, .2);
 
 const onInitTl = new TimelineMax({paused: true})
 	.set(page, {overflow: 'hidden'})
@@ -29,6 +28,8 @@ const onLoadTl = new TimelineMax({paused: true})
 	})
 	.set(page, {'overflow': 'auto', 'overflow-x': 'hidden'});
 
+preloaderInit();
+
 function preloaderInit() {
 	onInitTl.play();
 
@@ -38,5 +39,3 @@ function preloaderInit() {
 		});
 	});
 }
-
-preloaderInit();
