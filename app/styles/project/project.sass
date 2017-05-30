@@ -1,4 +1,5 @@
 .project
+	position: relative
 	padding: 0 1rem
 
 	&:hover 
@@ -8,8 +9,6 @@
 	+media-breakpoint-up(md)
 		display: flex
 		flex-flow: row wrap
-
-
 	
 .project__row
 	position: relative
@@ -27,20 +26,30 @@
 		position: absolute
 		display: block
 		content: ''
-		width: 200vw
-		height: 8rem
+		height: 6rem
 		background-color: $accent-1
-		
+
+.project__bg
+	+setAbsPosition(77.5%,50%,left,top)
+	display: none
+	height: 3px
+	width: 200vw 
+	background-color: $accent-2
+
+	+media-breakpoint-up(md)
+		display: block
 
 .project__number-box
 	position: relative
 	padding: 1rem 1.2rem 
+	z-index: 3
 	+media-breakpoint-up(md)
-		+setAbsPosition(20px,0,left,top)
+		position: absolute
+		bottom: 0
 
 .project__number
 	font-family: $heading-font
-	font-size: 4.8rem
+	font-size: 4.2rem
 	line-height: 0.8
 
 
@@ -65,8 +74,6 @@
 	&:last-child
 		height: 35%
 		width: 2px 
-
-
 
 .project__img-box
 	position: relative
@@ -104,13 +111,15 @@
 		transition: width 250ms
 
 .project__tags
+	padding: 1rem
+	background-color: $main-light
+	z-index: 2
 	
 
 .project__tag
 	position: relative
 	display: inline-block
 	border-radius: 25px
-	margin-left: 1rem
 	padding: 0.6rem 1.2rem 0.6rem 2.4rem 
 	font-size: 1.4rem 
 	font-style: italic
@@ -118,6 +127,9 @@
 	color: $main-light 
 	background-color: $accent-1-light
 	cursor: pointer 
+
+	&:not(:first-of-type)
+		margin-left: 1rem
 
 	&:hover
 		background-color: $accent-2
