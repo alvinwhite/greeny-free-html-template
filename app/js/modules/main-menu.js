@@ -1,102 +1,97 @@
 import PubSub from 'pubsub-js';
 import { TweenLite, TimelineLite } from 'gsap';
 
-
 const menuItems = document.querySelectorAll('.main-menu__item');
 
 initMainMenu();
 
 function initMainMenu() {
-	attachMenuItemsListeners();
+    attachMenuItemsListeners();
 }
 
 function attachMenuItemsListeners() {
-	var showSubTl, isClicked;
+    var showSubTl, isClicked;
 
-	menuItems.forEach((item) => {
-		var subMenu = item.querySelector('.main-menu__sub-menu');
-		var containsSub = Boolean(subMenu);
+    menuItems.forEach((item) => {
+        var subMenu = item.querySelector('.main-menu__sub-menu');
+        var containsSub = Boolean(subMenu);
 
-		if (containsSub) {
-			showSubTl = new TimelineLite({ paused: true })
-				.from(subMenu, 0.1, {
-					opacity: 0
-				});
+        if (containsSub) {
+            showSubTl = new TimelineLite({ paused: true })
+                .from(subMenu, 0.25, {
+                    opacity: 0,
+                    onStart: () => {
+                        subMenu.classList.add('main-menu__sub-menu--active');
+                    },
+                    onReverseComplete: () => {
+                        subMenu.classList.remove('main-menu__sub-menu--active');
+                    }
+                });
 
-			item.addEventListener('mouseenter', handleMenuItemMouseEnter);
-			item.addEventListener('mouseleave', handleMenuItemMouseLeave);
-			item.addEventListener('click', handleMenuItemClick);
+            item.addEventListener('mouseenter', handleMenuItemMouseEnter);
+            item.addEventListener('mouseleave', handleMenuItemMouseLeave);
+            item.addEventListener('click', handleMenuItemClick);
 
-		}
-	});
+        }
+    });
 
-	function handleMenuItemClick(e) {
-		e.preventDefault();
+    function handleMenuItemClick(e) {
+        e.preventDefault();
 
-		var subMenu = this.querySelector('.main-menu__sub-menu');
-		var moreBtn = this.querySelector('.main-menu__more-button');
-		var isActive = subMenu.classList.contains('main-menu__sub-menu--active');
+        var subMenu = this.querySelector('.main-menu__sub-menu');
+        var moreBtn = this.querySelector('.main-menu__more-button');
+        var isActive = subMenu.classList.contains('main-menu__sub-menu--active');
 
-		this.removeEventListener('mouseenter', handleMenuItemMouseEnter);
-		this.removeEventListener('mouseleave', handleMenuItemMouseLeave);		
+        this.removeEventListener('mouseenter', handleMenuItemMouseEnter);
+        this.removeEventListener('mouseleave', handleMenuItemMouseLeave);
 
-				if(isActive) {
+        if (isActive) {
 
-					if(isClicked) {
+            if (isClicked) {
 
-						showSubTl.reverse();
-						subMenu.classList.remove('main-menu__sub-menu--active');
-						moreBtn.classList.remove('more-button--active');
+                showSubTl.reverse();
+                subMenu.classList.remove('main-menu__sub-menu--active');
+                moreBtn.classList.remove('more-button--active');
 
-						this.addEventListener('mouseenter', handleMenuItemMouseEnter);
-						this.addEventListener('mouseleave', handleMenuItemMouseLeave);
+                this.addEventListener('mouseenter', handleMenuItemMouseEnter);
+                this.addEventListener('mouseleave', handleMenuItemMouseLeave);
 
-						isClicked = false;
+                isClicked = false;
 
-					} else {
+            } else {
 
-						moreBtn.classList.add('more-button--active');
-						isClicked = true;
+                moreBtn.classList.add('more-button--active');
+                isClicked = true;
 
-					}
+            }
 
-				} else {
+        } else {
 
-					subMenu.classList.add('main-menu__sub-menu--active');
-					moreBtn.classList.add('more-button--active');
+            subMenu.classList.add('main-menu__sub-menu--active');
+            moreBtn.classList.add('more-button--active');
 
-					showSubTl.play();
-					isClicked = true;
+            showSubTl.play();
+            isClicked = true;
 
-				}
-	}
+        }
+    }
 
-	function handleMenuItemMouseEnter(e) {
-		var menuLink = this.querySelector('.main-menu__link') || false;
-		var subMenu = this.querySelector('.main-menu__sub-menu') || false;
-		var moreBtn = this.querySelector('.main-menu__more-button') || false;
+    function handleMenuItemMouseEnter(e) {
+        var subMenu = this.querySelector('.main-menu__sub-menu') || false;
 
-		if (subMenu) {
-			showSubTl.call(() => {
-				subMenu.classList.add('main-menu__sub-menu--active');
-			});
-			showSubTl.play();
-		}
+        if (subMenu) {
+            showSubTl.play();
+        }
 
-	}
+    }
 
-	function handleMenuItemMouseLeave(e) {
-		var menuLink = this.querySelector('.main-menu__link') || false;
-		var subMenu = this.querySelector('.main-menu__sub-menu') || false;
-		var moreBtn = this.querySelector('.main-menu__more-button') || false;
+    function handleMenuItemMouseLeave(e) {
+        var subMenu = this.querySelector('.main-menu__sub-menu') || false;
 
-		if (subMenu) {
-			showSubTl.reverse();
-			showSubTl.call(() => {
-				subMenu.classList.remove('main-menu__sub-menu--active');
-			});
-		}
+        if (subMenu) {
+            showSubTl.reverse();
+        }
 
-	}
+    }
 
 }

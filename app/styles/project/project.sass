@@ -6,10 +6,26 @@
 		.project__heading::after
 			width: 15%
 	
+	&:not(:first-of-type)
+		margin-top: 12rem
+	
 	+media-breakpoint-up(md)
 		display: flex
 		flex-flow: row wrap
-	
+
+.project--ltr
+	.project__row
+		order: 1
+	.project__img-box
+		order: 2
+	.project__info
+		order: 3
+		margin-right: auto
+		margin-left: 0
+	.project__bg
+		+setAbsPosition(50%, 50%)
+
+
 .project__row
 	position: relative
 	margin: 2rem 0 2.5rem
@@ -30,9 +46,9 @@
 		background-color: $accent-1
 
 .project__bg
-	+setAbsPosition(77.5%,50%,left,top)
+	+setAbsPosition(77.5%,50%)
 	display: none
-	height: 3px
+	height: 2px
 	width: 200vw 
 	background-color: $accent-2
 
@@ -60,7 +76,7 @@
 
 	&:first-of-type
 		.project__stripe
-			+setAbsPosition(0,0,left,top)
+			+setAbsPosition(0,0)
 
 
 .project__stripe
@@ -80,12 +96,13 @@
 	z-index: 3
 	+media-breakpoint-up(md)
 		flex-basis: 50%
+			
 
 .project__img
 	max-width: 100%
 
 .project__info
-	margin-top: 2rem
+	margin-top: 3rem
 	text-align: center
 
 	+media-breakpoint-up(md)
@@ -111,12 +128,20 @@
 		transition: width 250ms
 
 .project__tags
-	padding: 1rem
+	margin-top: -1rem 
+	text-align: right
 	background-color: $main-light
 	z-index: 2
 	
+	+media-breakpoint-up(md)
+		padding: 1rem
+		text-align: center
+	
+//.284q84qq2
 
 .project__tag
+	margin-left: 1rem
+	margin-top: 1rem 
 	position: relative
 	display: inline-block
 	border-radius: 25px
@@ -126,13 +151,19 @@
 	font-weight: 300
 	color: $main-light 
 	background-color: $accent-1-light
-	cursor: pointer 
+	cursor: pointer
+	word-break: break-word 
+	z-index: 0
+	overflow: hidden
 
-	&:not(:first-of-type)
-		margin-left: 1rem
+
+	+media-breakpoint-up(md)
+		&:first-of-type
+			margin-left: 0
 
 	&:hover
-		background-color: $accent-2
+		&::after
+			width: 100%
 	
 	&::before
 		+setAbsPosition(10px, 50%, left, top)
@@ -142,6 +173,16 @@
 		border-radius: 50%
 		background-color: $main-light
 		content: ''
+	
+	&::after
+		+setAbsPosition(0,0)
+		display: block
+		content: ''
+		width: 0
+		height: 100%
+		background-color: $accent-2
+		transition: width 500ms ease
+		z-index: -1
 
 .project__text
 	margin-bottom: 2rem
